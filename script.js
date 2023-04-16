@@ -1,6 +1,6 @@
 let potatoes = 0;
 let potatoUp = 1;
-let PpS = 10;
+let PpS = 0;
 
 let spudSpitter = 0;
 let spudSpitterCost = 10;
