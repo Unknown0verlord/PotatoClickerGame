@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="./style.css">
+        <script src="./script.js"></script>
+        <title>Potato Clicker!!</title>
+    </head>
+
+    <body>
+        <div id="showVar">
+            <p id="varCount">Potatoes: 0</p>
+        </div>
+
+        <div id="counts">
+            <p id="spudCount">Spud Spitter: 0</p>
+            <p id="farmerCount">Potato Farmer: 0</p>
+        </div>
+        <br />
+        <br />
+        <button type="button" onclick="clickFirstButton()">Make a Potato!</button>
+        <br />
+        <br />
+        <button class="upgrades" id="spudSpitter" type="button" onclick="checkUpgrades(1)">
+            <p id="spudText">Spud Spitter &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: 10</p>
+            <p class="upgradeDesc">Makes more potatoes per click.</p>
+        </button>
+        <br />
+        <button class="upgrades" id="potatoFarmer" type="Button" onclick="checkUpgrades(2)">
+            <p id="farmerText">Potato Farmer &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: 50</p>
+            <p class="upgradeDesc">This Guy gives you his potatoes (1 PpS)</p>
+        </button>
+
+    </body>
+</html>
