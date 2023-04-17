@@ -15,48 +15,74 @@ let farmCost = 300;
 function clickFirstButton() {
     increasePotatoes();
     document.getElementById("varCount").innerHTML = "Potatoes: " + potatoes;
-    checkUpgrades();
+}
+
+function progressBar() {
+    var elem = document.getElementById("progressBar");   
+    var width = 1;
+    var id = setInterval(frame, 10);
+    function frame() {
+      if (width >= 100) {
+        clearInterval(id);
+      } else {
+        width++; 
+        elem.style.width = width + '%'; 
+      }
+    }
 }
 
 // PpS implementation
 setInterval(() => {activatePpS();}, 1000);
+setInterval(() => {checkUpgrades();}, 500);
 
-// Most Important Function
-// Takes number input from button press and directs to correct if-statement
+// Most Important Functions
+// checkUpgrades() updates button color when player has enough potatoes, checking every half second
+// upgrades() takes number input from button press and directs to correct function
 /////////////////////////////////////////////////////////////////////////////////
 
-function checkUpgrades(number) {
-    if (potatoes >= spudSpitterCost && number == 1) {
-        increaseSpudCount();
-    } else if (potatoes >= spudSpitterCost) {
+function checkUpgrades() {
+    if (potatoes >= spudSpitterCost) {
         document.getElementById("spudSpitter").style.backgroundColor = '#33cc33';
-    } else if (potatoes < spudSpitterCost) {
+    } else {
         document.getElementById("spudSpitter").style.backgroundColor = '#006600';
     }
 
-    if (potatoes >= farmerCost && number == 2) {
-        increaseFarmerCount();
-    } else if (potatoes >= farmerCost) {
+    if (potatoes >= farmerCost) {
         document.getElementById("potatoFarmer").style.backgroundColor = '#33cc33';
-    } else if (potatoes < farmerCost) {
+    } else {
         document.getElementById("potatoFarmer").style.backgroundColor = '#006600';
     }
 
-    if (potatoes >= farmCost && number == 3) {
-        increaseFarmCount();
-    } else if (potatoes >= farmCost) {
+    if (potatoes >= farmCost) {
         document.getElementById("potatoFarm").style.backgroundColor = '#33cc33';
-    } else if (potatoes < farmCost) {
+    } else {
         document.getElementById("potatoFarm").style.backgroundColor = '#006600';
     }
 }
+
+function upgrades(number) {
+    if (number == 1) {
+        if (potatoes >= spudSpitterCost) {
+            increaseSpudCount();
+        }
+    } else if (number == 2) {
+        if (potatoes >= farmerCost) {
+            increaseFarmerCount();
+        }
+    } else if (number == 3) {
+        if (potatoes >= farmCost && number == 3) {
+            increaseFarmCount();
+        }
+    }
+}
+
 
 //////////////////////////////////////////////////////////////////////////////////
 
 function increaseSpudCount() {
     spudSpitter += 1;
     potatoes -= spudSpitterCost;
-    spudSpitterCost = Math.floor(spudSpitterCost ** 1.08);
+    spudSpitterCost = Math.floor(10 * (1.25 ** spudSpitter));
     potatoUp += 1;
 
     if (potatoes < spudSpitterCost) {
@@ -72,7 +98,7 @@ function increaseSpudCount() {
 function increaseFarmerCount() {
     farmer += 1;
     potatoes -= farmerCost;
-    farmerCost = Math.floor(farmerCost ** 1.04);
+    farmerCost = Math.floor(50 * (1.15 ** farmer));
     PpS += 1;
 
     if (potatoes < farmerCost) {
@@ -88,7 +114,7 @@ function increaseFarmerCount() {
 function increaseFarmCount() {
     farm += 1;
     potatoes -= farmCost;
-    farmCost = Math.floor(farmCost ** 1.04);
+    farmCost = Math.floor(300 * (1.15 ** farm));
     PpS += 5;
 
     if (potatoes < farmCost) {
@@ -111,5 +137,5 @@ function increasePotatoes() {
 function activatePpS() {
     potatoes += PpS;
     document.getElementById("varCount").innerHTML = "Potatoes: " + potatoes;
-    checkUpgrades();
+    progressBar();
 }

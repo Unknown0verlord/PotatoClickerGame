@@ -9,6 +9,11 @@
     <body>
         <div id="showVar">
             <p id="varCount">Potatoes: 0</p>
+            
+            
+            <div class="progress-grey">
+                <div class="progress-green" id="progressBar" style="height:24px;width:0"></div>
+            </div>
         </div>
 
         <div id="counts">
@@ -22,17 +27,24 @@
         <button type="button" onclick="clickFirstButton()">Make a Potato!</button>
         <br />
         <br />
-        <button class="upgrades" id="spudSpitter" type="button" onclick="checkUpgrades(1)">
+        <!-- Spud Spitter Upgrade Button -->
+        <button class="upgrades" id="spudSpitter" type="button" onclick="upgrades(1)">
             <p id="spudText">Spud Spitter &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: 10</p>
             <p class="upgradeDesc">Makes more potatoes per click.</p>
         </button>
+
         <br />
-        <button class="upgrades" id="potatoFarmer" type="Button" onclick="checkUpgrades(2)">
+
+        <!-- Potato Farmer Upgrade Button -->
+        <button class="upgrades" id="potatoFarmer" type="Button" onclick="upgrades(2)">
             <p id="farmerText">Potato Farmer &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: 50</p>
             <p class="upgradeDesc">This Honest Man gives you his potatoes (1 PpS)</p>
         </button>
+
         <br />
-        <button class="upgrades" id="potatoFarm" type="Button" onclick="checkUpgrades(3)">
+
+        <!-- Potato Farm Upgrade Button -->
+        <button class="upgrades" id="potatoFarm" type="Button" onclick="upgrades(3)">
             <p id="farmText">Potato Farm &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: 300</p>
             <p class="upgradeDesc">A whole farm dedicated to your potatoes. (5 PpS)</p>
         </button>
