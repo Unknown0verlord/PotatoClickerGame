@@ -57,6 +57,10 @@ button {
     justify-content: center;
 }
 
+.saveData {
+    background-color: black;
+}
+
 
 
 
@@ -88,6 +92,6 @@ button {
     height: 500px;
 }
 
-#remember {
-    background-color: black;
+#removeData {
+    background-color: red;
 }

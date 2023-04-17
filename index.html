@@ -7,7 +7,7 @@
         <link rel="icon" type="image/x-icon" href="https://pngimg.com/uploads/potato/potato_PNG7084.png">
     </head>
 
-    <body>
+    <body onload="retrieveSessionVariables()">
         <div class="topbar">
             <div class="topbar2">
                 <a href="./index.html" onclick="setSessionVariables()">Home</a>
@@ -18,8 +18,10 @@
 
         <br />
 
+        <!--Amounts Div-->
         <div id="counts">
-            <button type="button" id="remember" onclick="retrieveSessionVariables()">Data?</button>
+            <button type="button" class="saveData" onclick="setSessionVariables()">Save</button>
+            <button type="button" id="removeData" onclick="deleteData()">Clear Data</button>
             <p>Amounts <br />---------------</p>
             <p id="spudCount">Spud Spitter: 0</p>
             <p id="farmerCount">Potato Farmer: 0</p>
@@ -27,6 +29,8 @@
             <p id="factoryCount">Potato Factory: 0</p>
         </div>
 
+
+        <!--Main Div with Potatoes and PpS-->
         <div id="showVar">
             <p id="varCount">Potatoes: 0</p>
             <p id="PpSCount">PpS: 0</p>

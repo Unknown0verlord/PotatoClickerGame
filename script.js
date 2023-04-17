@@ -205,6 +205,8 @@ function setSessionVariables() {
     localStorage.setItem("factory", factory);
     localStorage.setItem("factoryCost", factoryCost);
     // console.log(Object.values(variables)[5]);
+
+    alert("Data Saved!")
 }
 
 function retrieveSessionVariables() {
@@ -213,26 +215,36 @@ function retrieveSessionVariables() {
     //     console.log(sessionStorage[i]);
     // }
     // console.log(session);
-    potatoes = Number(localStorage.getItem("potatoes"));
-    potatoUp = Number(localStorage.getItem("potatoUp"));
-    PpS = Number(localStorage.getItem("PpS"));
-    spudSpitter = Number(localStorage.getItem("spudSpitter"));
-    spudSpitterCost = Number(localStorage.getItem("spudSpitterCost"));
-    farmer = Number(localStorage.getItem("farmer"));
-    farmerCost = Number(localStorage.getItem("farmerCost"));
-    farm = Number(localStorage.getItem("farm"));
-    farmCost = Number(localStorage.getItem("farmCost"));
-    factory = Number(localStorage.getItem("factory"));
-    factoryCost = Number(localStorage.getItem("factoryCost"));
     
-    document.getElementById("varCount").innerHTML = "Potatoes: " + potatoes;
-    document.getElementById("PpSCount").innerHTML = "PpS: " + PpS;
-    document.getElementById("spudCount").innerHTML = "Spud Spitter: " + spudSpitter;
-    document.getElementById("spudText").innerHTML = "Spud Spitter &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: " + spudSpitterCost;
-    document.getElementById("farmerCount").innerHTML = "Potato Farmer: " + farmer;
-    document.getElementById("farmerText").innerHTML = "Potato Farmer &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: " + farmerCost;
-    document.getElementById("farmCount").innerHTML = "Potato Farm: " + farm;
-    document.getElementById("farmText").innerHTML = "Potato Farm &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: " + farmCost;
-    document.getElementById("factoryCount").innerHTML = "Potato Factory: " + factory;
-    document.getElementById("factoryText").innerHTML = "Potato Factory &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: " + factoryCost;
+    if (Number(localStorage.getItem("potatoes")) != 0) {
+        potatoes = Number(localStorage.getItem("potatoes"));
+        potatoUp = Number(localStorage.getItem("potatoUp"));
+        PpS = Number(localStorage.getItem("PpS"));
+        spudSpitter = Number(localStorage.getItem("spudSpitter"));
+        spudSpitterCost = Number(localStorage.getItem("spudSpitterCost"));
+        farmer = Number(localStorage.getItem("farmer"));
+        farmerCost = Number(localStorage.getItem("farmerCost"));
+        farm = Number(localStorage.getItem("farm"));
+        farmCost = Number(localStorage.getItem("farmCost"));
+        factory = Number(localStorage.getItem("factory"));
+        factoryCost = Number(localStorage.getItem("factoryCost"));
+    
+        document.getElementById("varCount").innerHTML = "Potatoes: " + potatoes;
+        document.getElementById("PpSCount").innerHTML = "PpS: " + PpS;
+        document.getElementById("spudCount").innerHTML = "Spud Spitter: " + spudSpitter;
+        document.getElementById("spudText").innerHTML = "Spud Spitter &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: " + spudSpitterCost;
+        document.getElementById("farmerCount").innerHTML = "Potato Farmer: " + farmer;
+        document.getElementById("farmerText").innerHTML = "Potato Farmer &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: " + farmerCost;
+        document.getElementById("farmCount").innerHTML = "Potato Farm: " + farm;
+        document.getElementById("farmText").innerHTML = "Potato Farm &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: " + farmCost;
+        document.getElementById("factoryCount").innerHTML = "Potato Factory: " + factory;
+        document.getElementById("factoryText").innerHTML = "Potato Factory &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: " + factoryCost;
+    }
+    
+}
+
+function deleteData() {
+    if (confirm("Are you Sure?") == true) {
+        localStorage.clear();
+    }
 }
