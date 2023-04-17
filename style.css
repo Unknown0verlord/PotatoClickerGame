@@ -87,3 +87,7 @@ button {
     width: calc(10%);
     height: 500px;
 }
+
+#remember {
+    background-color: black;
+}

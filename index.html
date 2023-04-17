@@ -7,7 +7,7 @@
         <link rel="icon" type="image/x-icon" href="https://pngimg.com/uploads/potato/potato_PNG7084.png">
     </head>
 
-    <body onload="retrieveSessionVariables()">
+    <body>
         <div class="topbar">
             <div class="topbar2">
                 <a href="./index.html" onclick="setSessionVariables()">Home</a>
@@ -19,6 +19,7 @@
         <br />
 
         <div id="counts">
+            <button type="button" id="remember" onclick="retrieveSessionVariables()">Data?</button>
             <p>Amounts <br />---------------</p>
             <p id="spudCount">Spud Spitter: 0</p>
             <p id="farmerCount">Potato Farmer: 0</p>
