@@ -246,5 +246,6 @@ function retrieveSessionVariables() {
 function deleteData() {
     if (confirm("Are you Sure?") == true) {
         localStorage.clear();
+        alert("Data Cleared!");
     }
 }
