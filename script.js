@@ -106,6 +106,7 @@ function increaseFarmerCount() {
     }
 
     document.getElementById("varCount").innerHTML = "Potatoes: " + potatoes;
+    document.getElementById("PpSCount").innerHTML = "PpS: " + PpS;
     document.getElementById("farmerCount").innerHTML = "Potato Farmer: " + farmer;
     document.getElementById("farmerText").innerHTML = "Potato Farmer &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: " + farmerCost;
     console.log(farmer);
@@ -122,6 +123,7 @@ function increaseFarmCount() {
     }
 
     document.getElementById("varCount").innerHTML = "Potatoes: " + potatoes;
+    document.getElementById("PpSCount").innerHTML = "PpS: " + PpS;
     document.getElementById("farmCount").innerHTML = "Potato Farm: " + farm;
     document.getElementById("farmText").innerHTML = "Potato Farm &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: " + farmCost;
     console.log(farm);

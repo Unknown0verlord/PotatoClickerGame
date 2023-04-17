@@ -4,20 +4,6 @@ body {
     background-size:cover;
 }
 
-#showVar {
-    position: relative;
-    text-align: center;
-    border-radius: 12px;
-    font-size: 30px;
-    line-height: 50px;
-    padding-top: 10px;
-    color:white;
-    margin: 0 auto;
-    background-color: darkorchid;
-    height: 175px;
-    width: 300px;
-}
-
 button {
     background-color: #4CAF50;
     border: none;
@@ -32,20 +18,11 @@ button {
     cursor: pointer;
   }
 
+
+
+
 .upgrades {
     background-color: #006600;
-}
-
-#counts {
-    background-color: #4CAF50;
-    color:white;
-    font-size: 20px;
-    margin-left: 89%;
-    margin-top: 0%;
-    position:fixed;
-    width: calc(10%);
-    height: 500px;
-    content: '';
 }
 
 .upgradeDesc {
@@ -60,4 +37,38 @@ button {
 
 .progress-green {
     background-color: #4CAF50;
+}
+
+
+
+
+
+#showVar {
+    position: relative;
+    text-align: center;
+    border-radius: 12px;
+    font-size: 30px;
+    line-height: 30px;
+    padding-top: 10px;
+    color:white;
+    margin: 0 auto;
+    background-color: darkorchid;
+    height: 175px;
+    width: 300px;
+}
+
+#PpSCount {
+    font-size: 18px;
+}
+
+#counts {
+    background-color: #4CAF50;
+    color:white;
+    font-size: 20px;
+    margin-left: 89%;
+    margin-top: 0%;
+    position:fixed;
+    width: calc(10%);
+    height: 500px;
+    content: '';
 }
