@@ -66,9 +66,8 @@ button {
     color:white;
     font-size: 20px;
     margin-left: 89%;
-    margin-top: 0%;
     position:fixed;
     width: calc(10%);
     height: 500px;
-    content: '';
+    
 }

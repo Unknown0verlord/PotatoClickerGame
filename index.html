@@ -8,6 +8,14 @@
     </head>
 
     <body>
+        <div id="counts">
+            <p>Amounts <br />---------------</p>
+            <p id="spudCount">Spud Spitter: 0</p>
+            <p id="farmerCount">Potato Farmer: 0</p>
+            <p id="farmCount">Potato Farm: 0</p>
+            <p id="factoryCount">Potato Factory: 0</p>
+        </div>
+
         <div id="showVar">
             <p id="varCount">Potatoes: 0</p>
             <p id="PpSCount">PpS: 0</p>
@@ -18,17 +26,15 @@
             </div>
         </div>
 
-        <div id="counts">
-            <p>Amounts <br />---------------</p>
-            <p id="spudCount">Spud Spitter: 0</p>
-            <p id="farmerCount">Potato Farmer: 0</p>
-            <p id="farmCount">Potato Farm: 0</p>
-        </div>
         <br />
         <br />
+
+        <!--Make a Potato Button-->
         <button type="button" onclick="clickFirstButton()">Make a Potato!</button>
+
         <br />
         <br />
+        
         <!-- Spud Spitter Upgrade Button -->
         <button class="upgrades" id="spudSpitter" type="button" onclick="upgrades(1)">
             <p id="spudText">Spud Spitter &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: 10</p>
@@ -49,6 +55,14 @@
         <button class="upgrades" id="potatoFarm" type="Button" onclick="upgrades(3)">
             <p id="farmText">Potato Farm &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: 300</p>
             <p class="upgradeDesc">A whole farm dedicated to your potatoes. (5 PpS)</p>
+        </button>
+
+        <br />
+
+        <!-- Potato Factory Upgrade Button -->
+        <button class="upgrades" id="potatoFactory" type="Button" onclick="upgrades(4)">
+            <p id="factoryText">Potato Factory &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: 1000</p>
+            <p class="upgradeDesc">Streamline Production in Potato Factories (20 PpS)</p>
         </button>
     </body>
 </html>
