@@ -1,3 +1,4 @@
+
 let potatoes = 0;
 let potatoUp = 1;
 let PpS = 0;
@@ -13,6 +14,22 @@ let farmCost = 300;
 
 let factory = 0;
 let factoryCost = 1000;
+
+const variables = {
+    "potatoes": potatoes,
+    "potatoUp": potatoUp,
+    "PpS": PpS,
+    "spudSpitter": spudSpitter,
+    "spudSpitterCost": spudSpitterCost,
+    "farmer": farmer,
+    "farmerCost": farmerCost,
+    "farm": farm,
+    "farmCost": farmCost,
+    "factory": factory,
+    "factoryCost": factoryCost
+}
+
+const session = []
 
 // "Make a Potato!" button  calls this
 function clickFirstButton() {
@@ -170,4 +187,52 @@ function activatePpS() {
     potatoes += PpS;
     document.getElementById("varCount").innerHTML = "Potatoes: " + potatoes;
     progressBar();
+}
+
+function setSessionVariables() {
+    // for (i=0;i<variables.length;i++) {
+    //     sessionStorage.setItem(Object.keys(variables)[i], Object.values(variables)[i]);
+    // }
+    sessionStorage.setItem("potatoes", potatoes);
+    sessionStorage.setItem("potatoUp", potatoUp);
+    sessionStorage.setItem("PpS", PpS);
+    sessionStorage.setItem("spudSpitter", spudSpitter);
+    sessionStorage.setItem("spudSpitterCost", spudSpitterCost);
+    sessionStorage.setItem("farmer", farmer);
+    sessionStorage.setItem("farmerCost", farmerCost);
+    sessionStorage.setItem("farm", farm);
+    sessionStorage.setItem("farmCost", farmCost);
+    sessionStorage.setItem("factory", factory);
+    sessionStorage.setItem("factoryCost", factoryCost);
+    // console.log(Object.values(variables)[5]);
+}
+
+function retrieveSessionVariables() {
+    // for (i=0;i<variables.length;i++) {
+    //     session[i] = sessionStorage[i];
+    //     console.log(sessionStorage[i]);
+    // }
+    // console.log(session);
+    potatoes = Number(sessionStorage.getItem("potatoes"));
+    potatoUp = Number(sessionStorage.getItem("potatoUp"));
+    PpS = Number(sessionStorage.getItem("PpS"));
+    spudSpitter = Number(sessionStorage.getItem("spudSpitter"));
+    spudSpitterCost = Number(sessionStorage.getItem("spudSpitterCost"));
+    farmer = Number(sessionStorage.getItem("farmer"));
+    farmerCost = Number(sessionStorage.getItem("farmerCost"));
+    farm = Number(sessionStorage.getItem("farm"));
+    farmCost = Number(sessionStorage.getItem("farmCost"));
+    factory = Number(sessionStorage.getItem("factory"));
+    factoryCost = Number(sessionStorage.getItem("factoryCost"));
+    
+    document.getElementById("varCount").innerHTML = "Potatoes: " + potatoes;
+    document.getElementById("PpSCount").innerHTML = "PpS: " + PpS;
+    document.getElementById("spudCount").innerHTML = "Spud Spitter: " + spudSpitter;
+    document.getElementById("spudText").innerHTML = "Spud Spitter &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: " + spudSpitterCost;
+    document.getElementById("farmerCount").innerHTML = "Potato Farmer: " + farmer;
+    document.getElementById("farmerText").innerHTML = "Potato Farmer &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: " + farmerCost;
+    document.getElementById("farmCount").innerHTML = "Potato Farm: " + farm;
+    document.getElementById("farmText").innerHTML = "Potato Farm &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: " + farmCost;
+    document.getElementById("factoryCount").innerHTML = "Potato Factory: " + factory;
+    document.getElementById("factoryText").innerHTML = "Potato Factory &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: " + factoryCost;
 }

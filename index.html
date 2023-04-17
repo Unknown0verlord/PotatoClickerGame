@@ -7,7 +7,19 @@
         <link rel="icon" type="image/x-icon" href="https://pngimg.com/uploads/potato/potato_PNG7084.png">
     </head>
 
-    <body>
+    <body onload="retrieveSessionVariables()">
+        <div class="topbar">
+            <div class="topbar2">
+                <a href="./index.html" onclick="setSessionVariables()">Home</a>
+                <p>&nbsp;&nbsp; | &nbsp;&nbsp;</p>
+                <a href="./index2.html" onclick="setSessionVariables()">Upgrades<a>
+            </div>
+        </div>
+
+        <br />
+
+        <button type="button" onclick="setSessionVariables()">variable</button>
+
         <div id="counts">
             <p>Amounts <br />---------------</p>
             <p id="spudCount">Spud Spitter: 0</p>
@@ -34,7 +46,7 @@
 
         <br />
         <br />
-        
+
         <!-- Spud Spitter Upgrade Button -->
         <button class="upgrades" id="spudSpitter" type="button" onclick="upgrades(1)">
             <p id="spudText">Spud Spitter &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: 10</p>

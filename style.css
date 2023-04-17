@@ -39,6 +39,23 @@ button {
     background-color: #4CAF50;
 }
 
+.topbar {
+    background-color: darkorchid;
+    width: 100%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.topbar2 {
+    background-color: white;
+    width: 99%;
+    height: 20px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 
 
@@ -69,5 +86,4 @@ button {
     position:fixed;
     width: calc(10%);
     height: 500px;
-    
 }
