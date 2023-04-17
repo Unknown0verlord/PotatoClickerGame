@@ -15,21 +15,21 @@ let farmCost = 300;
 let factory = 0;
 let factoryCost = 1000;
 
-const variables = {
-    "potatoes": potatoes,
-    "potatoUp": potatoUp,
-    "PpS": PpS,
-    "spudSpitter": spudSpitter,
-    "spudSpitterCost": spudSpitterCost,
-    "farmer": farmer,
-    "farmerCost": farmerCost,
-    "farm": farm,
-    "farmCost": farmCost,
-    "factory": factory,
-    "factoryCost": factoryCost
-}
+// const variables = {
+//     "potatoes": potatoes,
+//     "potatoUp": potatoUp,
+//     "PpS": PpS,
+//     "spudSpitter": spudSpitter,
+//     "spudSpitterCost": spudSpitterCost,
+//     "farmer": farmer,
+//     "farmerCost": farmerCost,
+//     "farm": farm,
+//     "farmCost": farmCost,
+//     "factory": factory,
+//     "factoryCost": factoryCost
+// }
 
-const session = []
+// const session = []
 
 // "Make a Potato!" button  calls this
 function clickFirstButton() {
@@ -106,7 +106,7 @@ function upgrades(number) {
     }
 }
 
-
+// Tower buying functions
 //////////////////////////////////////////////////////////////////////////////////
 
 function increaseSpudCount() {
@@ -189,7 +189,10 @@ function activatePpS() {
     progressBar();
 }
 
-function setSessionVariables() {
+// Data Functions
+//////////////////////////////////////////////
+
+function setSessionVariables(number) {
     // for (i=0;i<variables.length;i++) {
     //     sessionStorage.setItem(Object.keys(variables)[i], Object.values(variables)[i]);
     // }
@@ -204,9 +207,12 @@ function setSessionVariables() {
     localStorage.setItem("farmCost", farmCost);
     localStorage.setItem("factory", factory);
     localStorage.setItem("factoryCost", factoryCost);
-    // console.log(Object.values(variables)[5]);
-
-    alert("Data Saved!")
+    
+    // Only activates when Save button is pressed
+    if (number == 1) {
+        alert("Data Saved!")
+    }
+    
 }
 
 function retrieveSessionVariables() {
