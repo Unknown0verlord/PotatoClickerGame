@@ -1,4 +1,3 @@
-
 let potatoes = 0;
 let potatoUp = 1;
 let PpS = 0;
@@ -8,12 +7,18 @@ let spudSpitterCost = 10;
 
 let farmer = 0;
 let farmerCost = 50;
+let farmerPpSadd = 1;
 
 let farm = 0;
 let farmCost = 300;
+let farmPpSadd = 5;
 
 let factory = 0;
 let factoryCost = 1000;
+let factoryPpSadd = 20;
+
+let biggerYields = false;
+let moreFields = false;
 
 // const variables = {
 //     "potatoes": potatoes,
@@ -29,7 +34,7 @@ let factoryCost = 1000;
 //     "factoryCost": factoryCost
 // }
 
-// const session = []
+
 
 // "Make a Potato!" button  calls this
 function clickFirstButton() {
@@ -73,6 +78,10 @@ setInterval(() => {
 /////////////////////////////////////////////////////////////////////////////////
 
 function checkUpgrades() {
+    document.getElementById("farmerDesc").innerHTML = "This Honest Man gives you his potatoes (" + farmerPpSadd + " PpS)";
+    document.getElementById("farmDesc").innerHTML = "A whole farm dedicated to your potatoes. (" + farmPpSadd +" PpS)";
+    document.getElementById("PpSCount").innerHTML = "PpS: " + PpS;
+
     if (potatoes >= spudSpitterCost) {
         document.getElementById("spudSpitter").style.backgroundColor = '#33cc33';
     } else {
@@ -95,6 +104,27 @@ function checkUpgrades() {
         document.getElementById("potatoFactory").style.backgroundColor = '#33cc33';
     } else {
         document.getElementById("potatoFactory").style.backgroundColor = '#006600';
+    }
+
+
+    if (biggerYields == false) {
+        if (potatoes >= 200) {
+            document.getElementById("firstUpgrade").style.backgroundColor = '#33cc33';
+        } else {
+            document.getElementById("firstUpgrade").style.backgroundColor = '#006600';
+        }
+    } else {
+        document.getElementById("firstUpgrade").style.backgroundColor = 'grey';
+    }
+
+    if (moreFields == false) {
+        if (potatoes >= 1000) {
+            document.getElementById("secondUpgrade").style.backgroundColor = '#33cc33';
+        } else {
+            document.getElementById("secondUpgrade").style.backgroundColor = '#006600';
+        }
+    } else {
+        document.getElementById("secondUpgrade").style.backgroundColor = 'grey';
     }
 }
 
@@ -141,7 +171,7 @@ function increaseFarmerCount() {
     farmer += 1;
     potatoes -= farmerCost;
     farmerCost = Math.floor(50 * (1.15 ** farmer));
-    PpS += 1;
+    PpS += farmerPpSadd;
 
     if (potatoes < farmerCost) {
         document.getElementById("potatoFarmer").style.backgroundColor = '#006600';
@@ -158,7 +188,7 @@ function increaseFarmCount() {
     farm += 1;
     potatoes -= farmCost;
     farmCost = Math.floor(300 * (1.15 ** farm));
-    PpS += 5;
+    PpS += farmPpSadd;
 
     if (potatoes < farmCost) {
         document.getElementById("potatoFarm").style.backgroundColor = '#006600';
@@ -175,7 +205,7 @@ function increaseFactoryCount() {
     factory += 1;
     potatoes -= factoryCost;
     factoryCost = Math.floor(1000 * (1.15 ** factory));
-    PpS += 20;
+    PpS += factoryPpSadd;
 
     if (potatoes < factoryCost) {
         document.getElementById("potatoFactory").style.backgroundColor = '#006600';
@@ -186,6 +216,27 @@ function increaseFactoryCount() {
     document.getElementById("factoryCount").innerHTML = "Potato Factory: " + factory;
     document.getElementById("factoryText").innerHTML = "Potato Factory &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: " + factoryCost;
     console.log(factory);
+}
+
+// Upgrade Functions
+//////////////////////////////////////////////
+
+function buyBiggerYields() {
+    if (potatoes >= 200) {
+        PpS -= farmerPpSadd*farmer
+        PpS += (2*farmerPpSadd)*farmer
+        farmerPpSadd *= 2;
+        biggerYields = true;
+    }
+}
+
+function buyMoreFields() {
+    if (potatoes >= 1000) {
+        PpS -= farmPpSadd*farm
+        PpS += (2*farmPpSadd)*farm
+        farmPpSadd *= 2;
+        moreFields = true;
+    }
 }
 
 // Core Functions

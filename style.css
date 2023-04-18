@@ -30,10 +30,15 @@ button {
 }
 
 .upgradeBlocks {
-    width: 100%;
-    height: 60px;
-    background-color: white;
-    margin: 10px;
+    width: 98%;
+    height:85px;
+    margin-bottom: 10px;
+    justify-content:center;
+    align-items: center;
+    line-height: 3px;
+    background-color: #006600;
+    padding: 0px;
+    font-size: 13px;
 }
 
 .upgradeBlocks2 {
@@ -119,7 +124,7 @@ button {
     background-color: black;
     color:white;
     font-size: 30px;
-    width: 275px;
+    width: 135px;
     height: 111px;
 
 }
@@ -141,7 +146,7 @@ button {
     font-size: 20px;
     margin-right: 89%;
     position:fixed;
-    width: calc(15%);
+    width: calc(20%);
     height: 500px;
     padding: 10px;
 }
@@ -156,28 +161,30 @@ button {
 #innerUpgrades {
     background-color: black;
     color:white;
-    font-size: 30px;
+    font-size: 15px;
     width: 99%;
     height: 99%;
     align-items: normal;
-    justify-content: left;
+    display: block;
+    justify-content: center;
+    overflow-y: auto;
 }
 
 #row1 {
-    width: 8000px;
-    height:125px;
+    color:white;
+    font-size: 15px;
+    width: 99%;
+    height: 20%;
+    align-items: normal;
     justify-content: center;
-    background-color: red;
 }
 
 #row2 {
-    width: 100%;
-    height:25%;
-    top: 25%;
+    color:white;
+    font-size: 15px;
+    width: 99%;
+    height: 40%;
+    align-items: normal;
     justify-content: center;
-}
-
-#potatoUpgrade {
-    background-image: url("https://pngimg.com/uploads/potato/potato_PNG7084.png");
-    height:62px
+    display: block;
 }

@@ -14,7 +14,7 @@
             <div class="innerDiv" id="topBar2">
                 <a class="topBarLinks" href="./index.html" onclick="setSessionVariables()">Home</a>
                 <p>&nbsp;&nbsp; | &nbsp;&nbsp;</p>
-                <a class="topBarLinks" href="./index2.html" onclick="setSessionVariables()">Upgrades</a>
+                <a class="topBarLinks" href="./index2.html" onclick="setSessionVariables()">Don't Go Here</a>
             </div>
         </div>
 
@@ -23,17 +23,21 @@
         <!--Upgrades Div-->
         <div id="outerUpgrades">
             <div class="innerDiv" id="innerUpgrades">
-                <div id="row1">
-                    <input type="image" src="https://pngimg.com/uploads/potato/potato_PNG7084.png" class="upgradeBlocks" title="Beefier Potatoes - 200 Potatoes"></input>
-
-                </div>
-
-                <br />
-
-                <div id="row2">
-
-                </div>
-
+                
+                 <button type="button" class="upgradeBlocks" id="firstUpgrade" onclick="buyBiggerYields(1)">
+                    <h3>Bigger Yields</h3>
+                    <p>Cost: 200 Potatoes</p>
+                    <br />
+                    <p>Doubles the PpS of your Farmers</p>
+                </button>
+                
+                <button type="button" class="upgradeBlocks" id="secondUpgrade">
+                    <h3>More Fields</h3>
+                    <p>Cost: 1000 Potatoes</p>
+                    <br />
+                    <p>Doubles the PpS of your Farms</p>
+                </button> 
+            
             </div>
         </div>
 
@@ -80,7 +84,7 @@
         <!-- Potato Farmer Upgrade Button -->
         <button class="upgrades" id="potatoFarmer" type="Button" onclick="upgrades(2)">
             <p id="farmerText">Potato Farmer &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: 50</p>
-            <p class="upgradeDesc">This Honest Man gives you his potatoes (1 PpS)</p>
+            <p class="upgradeDesc" id="farmerDesc"></p>
         </button>
 
         <br />
@@ -88,7 +92,7 @@
         <!-- Potato Farm Upgrade Button -->
         <button class="upgrades" id="potatoFarm" type="Button" onclick="upgrades(3)">
             <p id="farmText">Potato Farm &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: 300</p>
-            <p class="upgradeDesc">A whole farm dedicated to your potatoes. (5 PpS)</p>
+            <p class="upgradeDesc" id="farmDesc"></p>
         </button>
 
         <br />
