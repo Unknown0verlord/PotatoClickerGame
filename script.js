@@ -1,4 +1,4 @@
-let potatoes = 0;
+let potatoes = 2000;
 let potatoUp = 1;
 let PpS = 0;
 
@@ -225,6 +225,7 @@ function buyBiggerYields() {
     if (potatoes >= 200) {
         PpS -= farmerPpSadd*farmer
         PpS += (2*farmerPpSadd)*farmer
+        potatoes -= 200
         farmerPpSadd *= 2;
         biggerYields = true;
     }
@@ -234,6 +235,7 @@ function buyMoreFields() {
     if (potatoes >= 1000) {
         PpS -= farmPpSadd*farm
         PpS += (2*farmPpSadd)*farm
+        potatoes -= 1000;
         farmPpSadd *= 2;
         moreFields = true;
     }
@@ -266,10 +268,16 @@ function setSessionVariables(number) {
     localStorage.setItem("spudSpitterCost", spudSpitterCost);
     localStorage.setItem("farmer", farmer);
     localStorage.setItem("farmerCost", farmerCost);
+    localStorage.setItem("farmerPpSadd", farmerPpSadd);
     localStorage.setItem("farm", farm);
     localStorage.setItem("farmCost", farmCost);
+    localStorage.setItem("farmPpSadd", farmPpSadd);
     localStorage.setItem("factory", factory);
     localStorage.setItem("factoryCost", factoryCost);
+    localStorage.setItem("factoryPpSadd", factoryPpSadd);
+    localStorage.setItem("biggerYields", biggerYields);
+    localStorage.setItem("moreFields", moreFields);
+
     
     // Only activates when Save button is pressed
     if (number == 1) {
@@ -297,10 +305,16 @@ function retrieveSessionVariables() {
         spudSpitterCost = Number(localStorage.getItem("spudSpitterCost"));
         farmer = Number(localStorage.getItem("farmer"));
         farmerCost = Number(localStorage.getItem("farmerCost"));
+        farmerPpSadd = Number(localStorage.getItem("farmerPpSadd"));
         farm = Number(localStorage.getItem("farm"));
         farmCost = Number(localStorage.getItem("farmCost"));
+        farmPpSadd = Number(localStorage.getItem("farmPpSadd"));
         factory = Number(localStorage.getItem("factory"));
         factoryCost = Number(localStorage.getItem("factoryCost"));
+        factoryPpSadd = Number(localStorage.getItem("factoryPpSadd"));
+        biggerYields = Number(localStorage.getItem("biggerYields"))
+        moreFields = Number(localStorage.getItem("moreFields"))
+
     
         document.getElementById("varCount").innerHTML = "Potatoes: " + potatoes;
         document.getElementById("PpSCount").innerHTML = "PpS: " + PpS;
@@ -308,10 +322,16 @@ function retrieveSessionVariables() {
         document.getElementById("spudText").innerHTML = "Spud Spitter &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: " + spudSpitterCost;
         document.getElementById("farmerCount").innerHTML = "Potato Farmer: " + farmer;
         document.getElementById("farmerText").innerHTML = "Potato Farmer &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: " + farmerCost;
+        document.getElementById("farmerDesc").innerHTML = "This Honest Man gives you his potatoes (" + farmerPpSadd + " PpS)";
         document.getElementById("farmCount").innerHTML = "Potato Farm: " + farm;
         document.getElementById("farmText").innerHTML = "Potato Farm &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: " + farmCost;
+        document.getElementById("farmDesc").innerHTML = "A whole farm dedicated to your potatoes. (" + farmPpSadd +" PpS)";
         document.getElementById("factoryCount").innerHTML = "Potato Factory: " + factory;
         document.getElementById("factoryText").innerHTML = "Potato Factory &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: " + factoryCost;
+    
+        if (biggerYields == true) {
+            document.getElementById("firstUpgrade").style.backgroundColor = 'grey';
+        }
     }
     
 }
