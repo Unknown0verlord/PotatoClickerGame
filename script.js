@@ -53,7 +53,19 @@ function progressBar() {
 
 // PpS implementation
 setInterval(() => {activatePpS();}, 1000);
+
+// Check afforability, every 1/4 second
 setInterval(() => {checkUpgrades();}, 250);
+
+// Autosave
+setInterval(() => {
+    setSessionVariables();
+    document.getElementById("saveText").innerHTML = "Game Saved";
+
+    setTimeout(() => {
+        document.getElementById("saveText").innerHTML = "";
+    }, 3000);
+}, 60000)
 
 // Most Important Functions
 // checkUpgrades() updates button color when player has enough potatoes, checking every half second
@@ -210,7 +222,11 @@ function setSessionVariables(number) {
     
     // Only activates when Save button is pressed
     if (number == 1) {
-        alert("Data Saved!")
+        document.getElementById("saveText").innerHTML = "Game Saved";
+
+        setTimeout(() => {
+            document.getElementById("saveText").innerHTML = "";
+        }, 3000);
     }
     
 }
