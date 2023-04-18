@@ -1,4 +1,4 @@
-let potatoes = 2000;
+let potatoes = 0;
 let potatoUp = 1;
 let PpS = 0;
 
