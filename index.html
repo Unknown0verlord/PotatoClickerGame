@@ -8,18 +8,33 @@
     </head>
 
     <body onload="retrieveSessionVariables()">
+
+        <!--Navigation Bar-->
         <div class="topbar">
-            <div class="topbar2">
-                <a href="./index.html" onclick="setSessionVariables()">Home</a>
+            <div class="innerDiv" id="topBar2">
+                <a class="topBarLinks" href="./index.html" onclick="setSessionVariables()">Home</a>
                 <p>&nbsp;&nbsp; | &nbsp;&nbsp;</p>
-                <a href="./index2.html" onclick="setSessionVariables()">Upgrades<a>
+                <a class="topBarLinks" href="./index2.html" onclick="setSessionVariables()">Upgrades</a>
             </div>
         </div>
 
         <br />
 
-        <div id="upgrades">
+        <!--Upgrades Div-->
+        <div id="outerUpgrades">
+            <div class="innerDiv" id="innerUpgrades">
+                <div id="row1">
+                    <input type="image" src="https://pngimg.com/uploads/potato/potato_PNG7084.png" class="upgradeBlocks" title="Beefier Potatoes - 200 Potatoes"></input>
 
+                </div>
+
+                <br />
+
+                <div id="row2">
+
+                </div>
+
+            </div>
         </div>
 
         <!--Amounts Div-->
@@ -84,9 +99,9 @@
             <p class="upgradeDesc">Streamline Production in Potato Factories (20 PpS)</p>
         </button>
 
-
+        <!--Save Data Visual Confirmation-->
         <div id="surroundSave">
-            <div id="saveBlock">
+            <div class="innerDiv" id="saveBlock">
                 <p id="saveText"></p>
             </div>
         </div>
