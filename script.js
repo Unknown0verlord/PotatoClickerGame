@@ -1,4 +1,4 @@
-let potatoes = 5000;
+let potatoes = 0;
 let potatoUp = 1;
 let PpS = 0;
 
@@ -21,10 +21,15 @@ let district = 0;
 let districtCost = 5000;
 let districtPpSadd = 50;
 
+let convention = 0;
+let conventionCost = 20000;
+let conventionPpSadd = 100;
+
 let biggerYields = 0;
 let moreFields = 0;
 let looserLaws = 0;
 let districtExpansion = 0;
+let moreBooths = 0;
 
 // const variables = {
 //     "potatoes": potatoes,
@@ -79,7 +84,7 @@ setInterval(() => {
 }, 60000)
 
 // Most Important Functions
-// checkUpgrades() updates button color when player has enough potatoes, checking every half second
+// checkUpgrades() updates button color when player has enough potatoes, checking every 1/4 second
 // upgrades() takes number input from button press and directs to correct function
 /////////////////////////////////////////////////////////////////////////////////
 
@@ -88,6 +93,7 @@ function checkUpgrades() {
     document.getElementById("farmDesc").innerHTML = "A whole farm dedicated to your potatoes. (" + farmPpSadd +" PpS)";
     document.getElementById("factoryDesc").innerHTML = "Streamline Production in Potato Factories. (" + factoryPpSadd +" PpS)";
     document.getElementById("districtDesc").innerHTML = "An entire district of factories dedicated to Potatoes. (" + districtPpSadd +" PpS)";
+    document.getElementById("conventionDesc").innerHTML = "Host a convention for potatoes - \"Potato-Con\"! (" + conventionPpSadd +" PpS)";
     document.getElementById("PpSCount").innerHTML = "PpS: " + PpS;
 
     if (potatoes >= spudSpitterCost) {
@@ -120,6 +126,12 @@ function checkUpgrades() {
         document.getElementById("industrialDistrict").style.backgroundColor = '#006600';
     }
 
+    if (potatoes >= conventionCost) {
+        document.getElementById("potatoConvention").style.backgroundColor = '#33cc33';
+    } else {
+        document.getElementById("potatoConvention").style.backgroundColor = '#006600';
+    }
+
 
 
 
@@ -134,7 +146,7 @@ function checkUpgrades() {
     }
 
     if (moreFields == 0) {
-        if (potatoes >= 2000) {
+        if (potatoes >= 3000) {
             document.getElementById("secondUpgrade").style.backgroundColor = '#33cc33';
         } else {
             document.getElementById("secondUpgrade").style.backgroundColor = '#006600';
@@ -153,7 +165,7 @@ function checkUpgrades() {
         document.getElementById("thirdUpgrade").style.backgroundColor = 'grey';
     }
 
-    if (looserLaws == 0) {
+    if (districtExpansion == 0) {
         if (potatoes >= 50000) {
             document.getElementById("fourthUpgrade").style.backgroundColor = '#33cc33';
         } else {
@@ -161,6 +173,16 @@ function checkUpgrades() {
         }
     } else {
         document.getElementById("fourthUpgrade").style.backgroundColor = 'grey';
+    }
+
+    if (moreBooths == 0) {
+        if (potatoes >= 200000) {
+            document.getElementById("fifthUpgrade").style.backgroundColor = '#33cc33';
+        } else {
+            document.getElementById("fifthUpgrade").style.backgroundColor = '#006600';
+        }
+    } else {
+        document.getElementById("fifthUpgrade").style.backgroundColor = 'grey';
     }
 }
 
@@ -181,9 +203,13 @@ function upgrades(number) {
         if (potatoes >= factoryCost) {
             increaseFactoryCount();
         }
-    }  else if (number == 5) {
+    } else if (number == 5) {
         if (potatoes >= districtCost) {
             increaseDistrictCount();
+        }
+    } else if (number == 6) {
+        if (potatoes >= conventionCost) {
+            increaseConventionCount();
         }
     }
 }
@@ -272,8 +298,26 @@ function increaseDistrictCount() {
     document.getElementById("PpSCount").innerHTML = "PpS: " + PpS;
     document.getElementById("districtCount").innerHTML = "Industrial District: " + district;
     document.getElementById("districtText").innerHTML = "Industrial District &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: " + districtCost;
-    console.log(factory);
+    console.log(district);
 }
+
+function increaseConventionCount() {
+    convention += 1;
+    potatoes -= conventionCost;
+    conventionCost = Math.floor(20000 * (1.15 ** convention));
+    PpS += conventionPpSadd;
+
+    if (potatoes < conventionCost) {
+        document.getElementById("potatoConvention").style.backgroundColor = '#006600';
+    }
+
+    document.getElementById("varCount").innerHTML = "Potatoes: " + potatoes;
+    document.getElementById("PpSCount").innerHTML = "PpS: " + PpS;
+    document.getElementById("conventionCount").innerHTML = "Potato Convention: " + convention;
+    document.getElementById("conventionText").innerHTML = "Potato Convention &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: " + conventionCost;
+    console.log(convention);
+}
+
 
 // Upgrade Functions
 //////////////////////////////////////////////
@@ -292,10 +336,10 @@ function buyBiggerYields() {
 
 function buyMoreFields() {
     if (moreFields == 0) {
-        if (potatoes >= 2000) {
+        if (potatoes >= 3000) {
             PpS -= farmPpSadd*farm
             PpS += (2*farmPpSadd)*farm
-            potatoes -= 2000;
+            potatoes -= 3000;
             farmPpSadd *= 2;
             moreFields = 1;
         }
@@ -312,7 +356,6 @@ function buyLooserLaws() {
             looserLaws = 1;
         }
     }
-    
 }
 
 function buyDistrictExpansion() {
@@ -323,6 +366,18 @@ function buyDistrictExpansion() {
             potatoes -= 50000;
             districtPpSadd *= 2;
             districtExpansion = 1;
+        }
+    }
+}
+
+function buyMoreBooths() {
+    if (moreBooths == 0) {
+        if (potatoes >= 200000) {
+            PpS -= conventionPpSadd*convention
+            PpS += (2*conventionPpSadd)*convention
+            potatoes -= 200000;
+            conventionPpSadd *= 2;
+            moreBooths = 1;
         }
     }
 }
@@ -364,11 +419,15 @@ function setSessionVariables(number) {
     localStorage.setItem("district", district);
     localStorage.setItem("districtCost", districtCost);
     localStorage.setItem("districtPpSadd", districtPpSadd);
+    localStorage.setItem("convention", convention);
+    localStorage.setItem("conventionCost", conventionCost);
+    localStorage.setItem("conventionPpSadd", conventionPpSadd);
     
     localStorage.setItem("biggerYields", biggerYields);
     localStorage.setItem("moreFields", moreFields);
     localStorage.setItem("looserLaws", looserLaws);
     localStorage.setItem("districtExpansion", districtExpansion);
+    localStorage.setItem("moreBooths", moreBooths);
 
     
     // Only activates when Save button is pressed
@@ -407,11 +466,15 @@ function retrieveSessionVariables() {
         district = Number(localStorage.getItem("district"));
         districtCost= Number(localStorage.getItem("districtCost"));
         districtPpSadd = Number(localStorage.getItem("districtPpSadd"));
+        convention = Number(localStorage.getItem("convention"));
+        conventionCost = Number(localStorage.getItem("conventionCost"));
+        conventionPpSadd = Number(localStorage.getItem("conventionPpSadd"));
 
         biggerYields = Number(localStorage.getItem("biggerYields"));
         moreFields = Number(localStorage.getItem("moreFields"));
         looserLaws = Number(localStorage.getItem("looserLaws"));
         districtExpansion = Number(localStorage.getItem("districtExpansion"));
+        moreBooths = Number(localStorage.getItem("moreBooths"));
 
     
         document.getElementById("varCount").innerHTML = "Potatoes: " + potatoes;
@@ -429,21 +492,26 @@ function retrieveSessionVariables() {
         document.getElementById("factoryDesc").innerHTML = "Streamline Production in Potato Factories. (" + factoryPpSadd +" PpS)";
         document.getElementById("districtText").innerHTML = "Industrial District &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: " + districtCost;
         document.getElementById("districtDesc").innerHTML = "An entire district of factories dedicated to Potatoes. (" + districtPpSadd +" PpS)";
+        document.getElementById("conventionDesc").innerHTML = "Host a convention for potatoes - \"Potato-Con\"! (" + conventionPpSadd +" PpS)";
     
-        if (biggerYields == true) {
+        if (biggerYields == 1) {
             document.getElementById("firstUpgrade").style.backgroundColor = 'grey';
         }
 
-        if (moreFields == true) {
+        if (moreFields == 1) {
             document.getElementById("secondUpgrade").style.backgroundColor = 'grey';
         }
 
-        if (looserLaws == true) {
+        if (looserLaws == 1) {
             document.getElementById("thirdUpgrade").style.backgroundColor = 'grey';
         }
 
-        if (districtExpansion == true) {
+        if (districtExpansion == 1) {
             document.getElementById("fourthUpgrade").style.backgroundColor = 'grey';
+        }
+
+        if (moreBooths == 1) {
+            document.getElementById("fifthUpgrade").style.backgroundColor = 'grey';
         }
     }
     

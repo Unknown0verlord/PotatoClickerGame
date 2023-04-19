@@ -35,7 +35,7 @@
                 
                 <button type="button" class="upgradeBlocks" id="secondUpgrade" onclick="buyMoreFields()">
                     <h3>More Fields</h3>
-                    <p>Cost: 2000 Potatoes</p>
+                    <p>Cost: 3000 Potatoes</p>
                     <br />
                     <p>Doubles the PpS of your Farms</p>
                 </button>
@@ -53,6 +53,13 @@
                     <br />
                     <p>Doubles the PpS of your Industrial Districts</p>
                 </button>
+
+                <button type="button" class="upgradeBlocks" id="fifthUpgrade" onclick="buyMoreBooths()">
+                    <h3>More Booths</h3>
+                    <p>Cost: 200000 Potatoes</p>
+                    <br />
+                    <p>Doubles the PpS of your Potato Conventions</p>
+                </button>
             
             </div>
         </div>
@@ -67,6 +74,7 @@
             <p id="farmCount">Potato Farm: 0</p>
             <p id="factoryCount">Potato Factory: 0</p>
             <p id="districtCount">Industrial District: 0</p>
+            <p id="conventionCount">Potato Convention: 0</p>
         </div>
 
 
@@ -126,6 +134,14 @@
         <button class="upgrades" id="industrialDistrict" type="Button" onclick="upgrades(5)">
             <p id="districtText">Industrial District &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: 5000</p>
             <p class="upgradeDesc" id="districtDesc"></p>
+        </button>
+
+        <br />
+
+        <!-- Potato Convention Upgrade Button -->
+        <button class="upgrades" id="potatoConvention" type="Button" onclick="upgrades(6)">
+            <p id="conventionText">Potato Convention &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: 20000</p>
+            <p class="upgradeDesc" id="conventionDesc"></p>
         </button>
 
         <!--Save Data Visual Confirmation-->
