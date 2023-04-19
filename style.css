@@ -114,6 +114,7 @@ button {
     position:fixed;
     width: calc(10%);
     height: 500px;
+    line-height: 10px;
 }
 
 #removeData {
@@ -124,7 +125,7 @@ button {
     background-color: black;
     color:white;
     font-size: 30px;
-    width: 135px;
+    width: 99%;
     height: 111px;
 
 }

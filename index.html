@@ -23,20 +23,36 @@
         <!--Upgrades Div-->
         <div id="outerUpgrades">
             <div class="innerDiv" id="innerUpgrades">
+
+                <p style="font-size: 20px; font-weight:bold;">Upgrades</p>
                 
                  <button type="button" class="upgradeBlocks" id="firstUpgrade" onclick="buyBiggerYields()">
                     <h3>Bigger Yields</h3>
-                    <p>Cost: 200 Potatoes</p>
+                    <p>Cost: 500 Potatoes</p>
                     <br />
                     <p>Doubles the PpS of your Farmers</p>
                 </button>
                 
                 <button type="button" class="upgradeBlocks" id="secondUpgrade" onclick="buyMoreFields()">
                     <h3>More Fields</h3>
-                    <p>Cost: 1000 Potatoes</p>
+                    <p>Cost: 2000 Potatoes</p>
                     <br />
                     <p>Doubles the PpS of your Farms</p>
-                </button> 
+                </button>
+
+                <button type="button" class="upgradeBlocks" id="thirdUpgrade" onclick="buyLooserLaws()">
+                    <h3>Looser Laws</h3>
+                    <p>Cost: 10000 Potatoes</p>
+                    <br />
+                    <p>Doubles the PpS of your Factories</p>
+                </button>
+
+                <button type="button" class="upgradeBlocks" id="fourthUpgrade" onclick="buyDistrictExpansion()">
+                    <h3>District Expansion</h3>
+                    <p>Cost: 50000 Potatoes</p>
+                    <br />
+                    <p>Doubles the PpS of your Industrial Districts</p>
+                </button>
             
             </div>
         </div>
@@ -50,6 +66,7 @@
             <p id="farmerCount">Potato Farmer: 0</p>
             <p id="farmCount">Potato Farm: 0</p>
             <p id="factoryCount">Potato Factory: 0</p>
+            <p id="districtCount">Industrial District: 0</p>
         </div>
 
 
@@ -100,7 +117,15 @@
         <!-- Potato Factory Upgrade Button -->
         <button class="upgrades" id="potatoFactory" type="Button" onclick="upgrades(4)">
             <p id="factoryText">Potato Factory &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: 1000</p>
-            <p class="upgradeDesc">Streamline Production in Potato Factories (20 PpS)</p>
+            <p class="upgradeDesc" id="factoryDesc"></p>
+        </button>
+
+        <br />
+
+        <!-- Industrial District Upgrade Button -->
+        <button class="upgrades" id="industrialDistrict" type="Button" onclick="upgrades(5)">
+            <p id="districtText">Industrial District &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: 5000</p>
+            <p class="upgradeDesc" id="districtDesc"></p>
         </button>
 
         <!--Save Data Visual Confirmation-->

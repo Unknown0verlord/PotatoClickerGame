@@ -1,4 +1,4 @@
-let potatoes = 0;
+let potatoes = 5000;
 let potatoUp = 1;
 let PpS = 0;
 
@@ -17,8 +17,14 @@ let factory = 0;
 let factoryCost = 1000;
 let factoryPpSadd = 20;
 
-let biggerYields = false;
-let moreFields = false;
+let district = 0;
+let districtCost = 5000;
+let districtPpSadd = 50;
+
+let biggerYields = 0;
+let moreFields = 0;
+let looserLaws = 0;
+let districtExpansion = 0;
 
 // const variables = {
 //     "potatoes": potatoes,
@@ -80,6 +86,8 @@ setInterval(() => {
 function checkUpgrades() {
     document.getElementById("farmerDesc").innerHTML = "This Honest Man gives you his potatoes (" + farmerPpSadd + " PpS)";
     document.getElementById("farmDesc").innerHTML = "A whole farm dedicated to your potatoes. (" + farmPpSadd +" PpS)";
+    document.getElementById("factoryDesc").innerHTML = "Streamline Production in Potato Factories. (" + factoryPpSadd +" PpS)";
+    document.getElementById("districtDesc").innerHTML = "An entire district of factories dedicated to Potatoes. (" + districtPpSadd +" PpS)";
     document.getElementById("PpSCount").innerHTML = "PpS: " + PpS;
 
     if (potatoes >= spudSpitterCost) {
@@ -106,9 +114,17 @@ function checkUpgrades() {
         document.getElementById("potatoFactory").style.backgroundColor = '#006600';
     }
 
+    if (potatoes >= districtCost) {
+        document.getElementById("industrialDistrict").style.backgroundColor = '#33cc33';
+    } else {
+        document.getElementById("industrialDistrict").style.backgroundColor = '#006600';
+    }
 
-    if (biggerYields == false) {
-        if (potatoes >= 200) {
+
+
+
+    if (biggerYields == 0) {
+        if (potatoes >= 500) {
             document.getElementById("firstUpgrade").style.backgroundColor = '#33cc33';
         } else {
             document.getElementById("firstUpgrade").style.backgroundColor = '#006600';
@@ -117,14 +133,34 @@ function checkUpgrades() {
         document.getElementById("firstUpgrade").style.backgroundColor = 'grey';
     }
 
-    if (moreFields == false) {
-        if (potatoes >= 1000) {
+    if (moreFields == 0) {
+        if (potatoes >= 2000) {
             document.getElementById("secondUpgrade").style.backgroundColor = '#33cc33';
         } else {
             document.getElementById("secondUpgrade").style.backgroundColor = '#006600';
         }
     } else {
         document.getElementById("secondUpgrade").style.backgroundColor = 'grey';
+    }
+
+    if (looserLaws == 0) {
+        if (potatoes >= 10000) {
+            document.getElementById("thirdUpgrade").style.backgroundColor = '#33cc33';
+        } else {
+            document.getElementById("thirdUpgrade").style.backgroundColor = '#006600';
+        }
+    } else {
+        document.getElementById("thirdUpgrade").style.backgroundColor = 'grey';
+    }
+
+    if (looserLaws == 0) {
+        if (potatoes >= 50000) {
+            document.getElementById("fourthUpgrade").style.backgroundColor = '#33cc33';
+        } else {
+            document.getElementById("fourthUpgrade").style.backgroundColor = '#006600';
+        }
+    } else {
+        document.getElementById("fourthUpgrade").style.backgroundColor = 'grey';
     }
 }
 
@@ -144,6 +180,10 @@ function upgrades(number) {
     } else if (number == 4) {
         if (potatoes >= factoryCost) {
             increaseFactoryCount();
+        }
+    }  else if (number == 5) {
+        if (potatoes >= districtCost) {
+            increaseDistrictCount();
         }
     }
 }
@@ -218,26 +258,72 @@ function increaseFactoryCount() {
     console.log(factory);
 }
 
+function increaseDistrictCount() {
+    district += 1;
+    potatoes -= districtCost;
+    districtCost = Math.floor(5000 * (1.15 ** district));
+    PpS += districtPpSadd;
+
+    if (potatoes < districtCost) {
+        document.getElementById("industrialDistrict").style.backgroundColor = '#006600';
+    }
+
+    document.getElementById("varCount").innerHTML = "Potatoes: " + potatoes;
+    document.getElementById("PpSCount").innerHTML = "PpS: " + PpS;
+    document.getElementById("districtCount").innerHTML = "Industrial District: " + district;
+    document.getElementById("districtText").innerHTML = "Industrial District &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: " + districtCost;
+    console.log(factory);
+}
+
 // Upgrade Functions
 //////////////////////////////////////////////
 
 function buyBiggerYields() {
-    if (potatoes >= 200) {
-        PpS -= farmerPpSadd*farmer
-        PpS += (2*farmerPpSadd)*farmer
-        potatoes -= 200
-        farmerPpSadd *= 2;
-        biggerYields = true;
-    }
+    if (biggerYields == 0) {
+        if (potatoes >= 500) {
+            PpS -= farmerPpSadd*farmer
+            PpS += (2*farmerPpSadd)*farmer
+            potatoes -= 500
+            farmerPpSadd *= 2;
+            biggerYields = 1;
+        }
+    }    
 }
 
 function buyMoreFields() {
-    if (potatoes >= 1000) {
-        PpS -= farmPpSadd*farm
-        PpS += (2*farmPpSadd)*farm
-        potatoes -= 1000;
-        farmPpSadd *= 2;
-        moreFields = true;
+    if (moreFields == 0) {
+        if (potatoes >= 2000) {
+            PpS -= farmPpSadd*farm
+            PpS += (2*farmPpSadd)*farm
+            potatoes -= 2000;
+            farmPpSadd *= 2;
+            moreFields = 1;
+        }
+    }
+}
+
+function buyLooserLaws() {
+    if (looserLaws == 0) {
+        if (potatoes >= 10000) {
+            PpS -= factoryPpSadd*factory
+            PpS += (2*factoryPpSadd)*factory
+            potatoes -= 10000;
+            factoryPpSadd *= 2;
+            looserLaws = 1;
+        }
+    }
+    
+}
+
+function buyDistrictExpansion() {
+    if (districtExpansion == 0) {
+        if (potatoes >= 50000) {
+            PpS -= districtPpSadd*district
+            PpS += (2*districtPpSadd)*district
+            potatoes -= 50000;
+            districtPpSadd *= 2;
+            districtExpansion = 1;
+        }
     }
 }
 
@@ -275,8 +361,14 @@ function setSessionVariables(number) {
     localStorage.setItem("factory", factory);
     localStorage.setItem("factoryCost", factoryCost);
     localStorage.setItem("factoryPpSadd", factoryPpSadd);
+    localStorage.setItem("district", district);
+    localStorage.setItem("districtCost", districtCost);
+    localStorage.setItem("districtPpSadd", districtPpSadd);
+    
     localStorage.setItem("biggerYields", biggerYields);
     localStorage.setItem("moreFields", moreFields);
+    localStorage.setItem("looserLaws", looserLaws);
+    localStorage.setItem("districtExpansion", districtExpansion);
 
     
     // Only activates when Save button is pressed
@@ -312,8 +404,14 @@ function retrieveSessionVariables() {
         factory = Number(localStorage.getItem("factory"));
         factoryCost = Number(localStorage.getItem("factoryCost"));
         factoryPpSadd = Number(localStorage.getItem("factoryPpSadd"));
-        biggerYields = Number(localStorage.getItem("biggerYields"))
-        moreFields = Number(localStorage.getItem("moreFields"))
+        district = Number(localStorage.getItem("district"));
+        districtCost= Number(localStorage.getItem("districtCost"));
+        districtPpSadd = Number(localStorage.getItem("districtPpSadd"));
+
+        biggerYields = Number(localStorage.getItem("biggerYields"));
+        moreFields = Number(localStorage.getItem("moreFields"));
+        looserLaws = Number(localStorage.getItem("looserLaws"));
+        districtExpansion = Number(localStorage.getItem("districtExpansion"));
 
     
         document.getElementById("varCount").innerHTML = "Potatoes: " + potatoes;
@@ -328,9 +426,24 @@ function retrieveSessionVariables() {
         document.getElementById("farmDesc").innerHTML = "A whole farm dedicated to your potatoes. (" + farmPpSadd +" PpS)";
         document.getElementById("factoryCount").innerHTML = "Potato Factory: " + factory;
         document.getElementById("factoryText").innerHTML = "Potato Factory &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: " + factoryCost;
+        document.getElementById("factoryDesc").innerHTML = "Streamline Production in Potato Factories. (" + factoryPpSadd +" PpS)";
+        document.getElementById("districtText").innerHTML = "Industrial District &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: " + districtCost;
+        document.getElementById("districtDesc").innerHTML = "An entire district of factories dedicated to Potatoes. (" + districtPpSadd +" PpS)";
     
         if (biggerYields == true) {
             document.getElementById("firstUpgrade").style.backgroundColor = 'grey';
+        }
+
+        if (moreFields == true) {
+            document.getElementById("secondUpgrade").style.backgroundColor = 'grey';
+        }
+
+        if (looserLaws == true) {
+            document.getElementById("thirdUpgrade").style.backgroundColor = 'grey';
+        }
+
+        if (districtExpansion == true) {
+            document.getElementById("fourthUpgrade").style.backgroundColor = 'grey';
         }
     }
     
@@ -339,6 +452,6 @@ function retrieveSessionVariables() {
 function deleteData() {
     if (confirm("Are you Sure?") == true) {
         localStorage.clear();
-        alert("Data Cleared!");
+        alert("Data Cleared! Reload the Page to see your Changes.");
     }
 }
