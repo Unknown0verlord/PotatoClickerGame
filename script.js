@@ -1,3 +1,17 @@
+import { Octokit } from "octokit";
+
+const octokit = new Octokit({
+    auth: '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'
+})
+
+await octokit.request('GET /repos/{owner}/{repo}/contents', {
+    owner: 'unknown0verlord',
+    repo: 'PotatoClickerDevBuild',
+    headers: {
+      'X-GitHub-Api-Version': '2022-11-28'
+    }
+  })
+
 let potatoes = 0;
 let potatoUp = 1;
 let PpS = 0;
@@ -45,6 +59,7 @@ let moreBooths = 0;
 //     "factoryCost": factoryCost
 // }
 
+console.log(HttpRequest("localhost:3000/patch", method="get"));
 
 
 // "Make a Potato!" button  calls this
@@ -395,6 +410,9 @@ function activatePpS() {
     progressBar();
 }
 
+
+
+
 // Data Functions
 //////////////////////////////////////////////
 
@@ -523,3 +541,7 @@ function deleteData() {
         alert("Data Cleared! Reload the Page to see your Changes.");
     }
 }
+
+
+
+
