@@ -1,19 +1,3 @@
-import { Octokit } from "octokit";
-
-const octokit = new Octokit({
-    auth: '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'
-})
-
-let request = await octokit.request('GET /repos/{owner}/{repo}/contents', {
-    owner: 'unknown0verlord',
-    repo: 'PotatoClickerDevBuild',
-    headers: {
-      'X-GitHub-Api-Version': '2022-11-28'
-    }
-  })
-
-console.log(request);
-
 let potatoes = 0;
 let potatoUp = 1;
 let PpS = 0;
@@ -47,6 +31,10 @@ let looserLaws = 0;
 let districtExpansion = 0;
 let moreBooths = 0;
 
+let patch = "v1.0.0";
+
+
+
 // const variables = {
 //     "potatoes": potatoes,
 //     "potatoUp": potatoUp,
@@ -60,8 +48,6 @@ let moreBooths = 0;
 //     "factory": factory,
 //     "factoryCost": factoryCost
 // }
-
-console.log(HttpRequest("localhost:3000/patch", method="get"));
 
 
 // "Make a Potato!" button  calls this
@@ -99,6 +85,9 @@ setInterval(() => {
         document.getElementById("saveText").innerHTML = "";
     }, 3000);
 }, 60000)
+
+// Check Version every minute
+// setInterval(() => {checkVersion();}, 60000)
 
 // Most Important Functions
 // checkUpgrades() updates button color when player has enough potatoes, checking every 1/4 second
@@ -458,6 +447,8 @@ function setSessionVariables(number) {
             document.getElementById("saveText").innerHTML = "";
         }, 3000);
     }
+
+    checkVersion();
     
 }
 
@@ -544,6 +535,22 @@ function deleteData() {
     }
 }
 
+// http request for patch version
+//////////////////////////////////////////////
 
-
-
+function checkVersion() {
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", "https://raw.githubusercontent.com/Unknown0verlord/PotatoClickerGame/master/package.json", true);
+    xhr.send(null);
+    xhr.responseType = "json";
+    xhr.onload = function() {
+        let responseObj = xhr.response;
+        console.log("Repository version is " + responseObj.version);
+        console.log("Running version " + patch);
+        if (patch != responseObj.version) {
+            document.getElementById("patchCheck").innerHTML = "Your Version of Potato Clicker is out of date. Consider Saving and Reloading the Page."
+        } else {
+            document.getElementById("patchCheck").innerHTML = ""
+        }
+    }
+}

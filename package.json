@@ -1,6 +1,8 @@
 {
   "version": "v1.0.0",
+  "type": "module",
   "dependencies": {
-    "octokit": "^2.0.14"
+    "octokit": "^2.0.14",
+    "requirejs": "^2.3.6"
   }
 }

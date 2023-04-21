@@ -3,11 +3,11 @@
     <head>
         <link rel="stylesheet" href="./style.css">
         <script src="./script.js"></script>
-        <title>Potato Clicker!!</title>
+        <title>Potato Clicker Dev Build!!</title>
         <link rel="icon" type="image/x-icon" href="https://pngimg.com/uploads/potato/potato_PNG7084.png">
     </head>
 
-    <body onload="retrieveSessionVariables()">
+    <body onload="retrieveSessionVariables(); checkVersion()">
 
         <!--Navigation Bar-->
         <div class="topbar">
@@ -61,6 +61,12 @@
                     <p>Doubles the PpS of your Potato Conventions</p>
                 </button>
             
+            </div>
+        </div>
+
+        <div id="outerPatchCheck">
+            <div class="innerDiv">
+                <p id="patchCheck" style="font-size: 20px;"></p>
             </div>
         </div>
 

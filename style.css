@@ -70,6 +70,11 @@ button {
 }
 
 .innerDiv {
+    background-color: black;
+    color:white;
+    font-size: 15px;
+    width: 99%;
+    height: 99%;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -152,6 +157,16 @@ button {
     padding: 10px;
 }
 
+#outerPatchCheck {
+    background-color: darkorchid;
+    width: 20%;
+    height: 110px;
+    margin-right: 89%;
+    top: 46%;
+    position:fixed;
+    padding: 10px;
+}
+
 #topBar2 {
     background-color: black;
     color: white;
@@ -169,6 +184,17 @@ button {
     display: block;
     justify-content: center;
     overflow-y: auto;
+}
+
+#innerPatchCheck {
+    background-color: black;
+    color:white;
+    font-size: 15px;
+    width: 99%;
+    height: 99%;
+    align-items: normal;
+    display: block;
+    justify-content: center;
 }
 
 #row1 {
