@@ -4,13 +4,15 @@ const octokit = new Octokit({
     auth: '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'
 })
 
-await octokit.request('GET /repos/{owner}/{repo}/contents', {
+let request = await octokit.request('GET /repos/{owner}/{repo}/contents', {
     owner: 'unknown0verlord',
     repo: 'PotatoClickerDevBuild',
     headers: {
       'X-GitHub-Api-Version': '2022-11-28'
     }
   })
+
+console.log(request);
 
 let potatoes = 0;
 let potatoUp = 1;
