@@ -31,7 +31,7 @@ let looserLaws = 0;
 let districtExpansion = 0;
 let moreBooths = 0;
 
-let patch = "v1.0.1";
+let patch = "v1.0.2";
 
 
 
@@ -87,7 +87,7 @@ setInterval(() => {
 }, 60000)
 
 // Check Version every minute
-// setInterval(() => {checkVersion();}, 60000)
+setInterval(() => {checkVersion();}, 60000);
 
 // Most Important Functions
 // checkUpgrades() updates button color when player has enough potatoes, checking every 1/4 second
@@ -252,7 +252,7 @@ function increaseFarmerCount() {
     document.getElementById("varCount").innerHTML = "Potatoes: " + potatoes;
     document.getElementById("PpSCount").innerHTML = "PpS: " + PpS;
     document.getElementById("farmerCount").innerHTML = "Potato Farmer: " + farmer;
-    document.getElementById("farmerText").innerHTML = "Potato Farmer &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: " + farmerCost;
+    document.getElementById("farmerText").innerHTML = "Cost: " + farmerCost;
     console.log(farmer);
 }
 
@@ -269,7 +269,7 @@ function increaseFarmCount() {
     document.getElementById("varCount").innerHTML = "Potatoes: " + potatoes;
     document.getElementById("PpSCount").innerHTML = "PpS: " + PpS;
     document.getElementById("farmCount").innerHTML = "Potato Farm: " + farm;
-    document.getElementById("farmText").innerHTML = "Potato Farm &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: " + farmCost;
+    document.getElementById("farmText").innerHTML = "Cost: " + farmCost;
     console.log(farm);
 }
 
@@ -286,7 +286,7 @@ function increaseFactoryCount() {
     document.getElementById("varCount").innerHTML = "Potatoes: " + potatoes;
     document.getElementById("PpSCount").innerHTML = "PpS: " + PpS;
     document.getElementById("factoryCount").innerHTML = "Potato Factory: " + factory;
-    document.getElementById("factoryText").innerHTML = "Potato Factory &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: " + factoryCost;
+    document.getElementById("factoryText").innerHTML = "Cost: " + factoryCost;
     console.log(factory);
 }
 
@@ -303,7 +303,7 @@ function increaseDistrictCount() {
     document.getElementById("varCount").innerHTML = "Potatoes: " + potatoes;
     document.getElementById("PpSCount").innerHTML = "PpS: " + PpS;
     document.getElementById("districtCount").innerHTML = "Industrial District: " + district;
-    document.getElementById("districtText").innerHTML = "Industrial District &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: " + districtCost;
+    document.getElementById("districtText").innerHTML = "Cost: " + districtCost;
     console.log(district);
 }
 
@@ -320,7 +320,7 @@ function increaseConventionCount() {
     document.getElementById("varCount").innerHTML = "Potatoes: " + potatoes;
     document.getElementById("PpSCount").innerHTML = "PpS: " + PpS;
     document.getElementById("conventionCount").innerHTML = "Potato Convention: " + convention;
-    document.getElementById("conventionText").innerHTML = "Potato Convention &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: " + conventionCost;
+    document.getElementById("conventionText").innerHTML = "Cost: " + conventionCost;
     console.log(convention);
 }
 
@@ -447,8 +447,6 @@ function setSessionVariables(number) {
             document.getElementById("saveText").innerHTML = "";
         }, 3000);
     }
-
-    checkVersion();
     
 }
 
@@ -492,26 +490,26 @@ function retrieveSessionVariables() {
         document.getElementById("PpSCount").innerHTML = "PpS: " + PpS;
 
         document.getElementById("spudCount").innerHTML = "Spud Spitter: " + spudSpitter;
-        document.getElementById("spudText").innerHTML = "Spud Spitter &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: " + spudSpitterCost;
+        document.getElementById("spudText").innerHTML = "Cost: " + spudSpitterCost;
 
         document.getElementById("farmerCount").innerHTML = "Potato Farmer: " + farmer;
-        document.getElementById("farmerText").innerHTML = "Potato Farmer &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: " + farmerCost;
+        document.getElementById("farmerText").innerHTML = "Cost: " + farmerCost;
         document.getElementById("farmerDesc").innerHTML = "This Honest Man gives you his potatoes (" + farmerPpSadd + " PpS)";
 
         document.getElementById("farmCount").innerHTML = "Potato Farm: " + farm;
-        document.getElementById("farmText").innerHTML = "Potato Farm &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: " + farmCost;
+        document.getElementById("farmText").innerHTML = "Cost: " + farmCost;
         document.getElementById("farmDesc").innerHTML = "A whole farm dedicated to your potatoes. (" + farmPpSadd +" PpS)";
 
         document.getElementById("factoryCount").innerHTML = "Potato Factory: " + factory;
-        document.getElementById("factoryText").innerHTML = "Potato Factory &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: " + factoryCost;
+        document.getElementById("factoryText").innerHTML = "Cost: " + factoryCost;
         document.getElementById("factoryDesc").innerHTML = "Streamline Production in Potato Factories. (" + factoryPpSadd +" PpS)";
 
         document.getElementById("districtCount").innerHTML = "Industrial District: " + district;
-        document.getElementById("districtText").innerHTML = "Industrial District &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: " + districtCost;
+        document.getElementById("districtText").innerHTML = "Cost: " + districtCost;
         document.getElementById("districtDesc").innerHTML = "An entire district of factories dedicated to Potatoes. (" + districtPpSadd +" PpS)";
 
         document.getElementById("conventionCount").innerHTML = "Potato Convention: " + convention;
-        document.getElementById("conventionText").innerHTML = "Potato Convention &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: " + conventionCost;
+        document.getElementById("conventionText").innerHTML = "Cost: " + conventionCost;
         document.getElementById("conventionDesc").innerHTML = "Host a convention for potatoes - \"Potato-Con\"! (" + conventionPpSadd +" PpS)";
     
         if (biggerYields == 1) {
