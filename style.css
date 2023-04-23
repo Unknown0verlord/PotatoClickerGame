@@ -115,11 +115,12 @@ p {
     background-color: #4CAF50;
     color:white;
     font-size: 20px;
-    margin-left: 89%;
+    margin-left: 88%;
     position:fixed;
-    width: calc(10%);
-    height: 500px;
+    width: 11%;
+    height: 70%;
     line-height: 10px;
+    overflow-y: auto;
 }
 
 #innerPatchCheck {
@@ -198,8 +199,7 @@ p {
     color:white;
     font-size: 30px;
     width: 99%;
-    height: 111px;
-
+    height: 99%;
 }
 
 #showVar {
@@ -219,7 +219,7 @@ p {
 #surroundSave {
     background-color: darkorchid;
     width: 11%;
-    height: 110px;
+    height: 11%;
     margin-left: 89%;
     bottom:10px;
     right: 10px;

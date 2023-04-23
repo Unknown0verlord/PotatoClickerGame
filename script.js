@@ -25,13 +25,18 @@ let convention = 0;
 let conventionCost = 20000;
 let conventionPpSadd = 100;
 
+let merchandise = 0;
+let merchandiseCost = 100000;
+let merchandisePpSadd = 500;
+
 let biggerYields = 0;
 let moreFields = 0;
 let looserLaws = 0;
 let districtExpansion = 0;
 let moreBooths = 0;
+let sleekerDesigns = 0;
 
-let patch = "v1.0.2";
+let patch = "v1.1.0";
 
 
 
@@ -53,7 +58,7 @@ let patch = "v1.0.2";
 // "Make a Potato!" button  calls this
 function clickFirstButton() {
     increasePotatoes();
-    document.getElementById("varCount").innerHTML = "Potatoes: " + potatoes;
+    document.getElementById("varCount").innerHTML = "Potatoes: " + potatoes.toLocaleString();
 }
 
 function progressBar() {
@@ -95,12 +100,13 @@ setInterval(() => {checkVersion();}, 60000);
 /////////////////////////////////////////////////////////////////////////////////
 
 function checkUpgrades() {
-    document.getElementById("farmerDesc").innerHTML = "This Honest Man gives you his potatoes (" + farmerPpSadd + " PpS)";
-    document.getElementById("farmDesc").innerHTML = "A whole farm dedicated to your potatoes. (" + farmPpSadd +" PpS)";
-    document.getElementById("factoryDesc").innerHTML = "Streamline Production in Potato Factories. (" + factoryPpSadd +" PpS)";
-    document.getElementById("districtDesc").innerHTML = "An entire district of factories dedicated to Potatoes. (" + districtPpSadd +" PpS)";
-    document.getElementById("conventionDesc").innerHTML = "Host a convention for potatoes - \"Potato-Con\"! (" + conventionPpSadd +" PpS)";
-    document.getElementById("PpSCount").innerHTML = "PpS: " + PpS;
+    document.getElementById("farmerDesc").innerHTML = "This Honest Man gives you his potatoes (" + farmerPpSadd.toLocaleString() + " PpS)";
+    document.getElementById("farmDesc").innerHTML = "A whole farm dedicated to your potatoes. (" + farmPpSadd.toLocaleString() +" PpS)";
+    document.getElementById("factoryDesc").innerHTML = "Streamline Production in Potato Factories. (" + factoryPpSadd.toLocaleString() +" PpS)";
+    document.getElementById("districtDesc").innerHTML = "An entire district of factories dedicated to Potatoes. (" + districtPpSadd.toLocaleString() +" PpS)";
+    document.getElementById("conventionDesc").innerHTML = "Host a convention for potatoes - \"Potato-Con\"! (" + conventionPpSadd.toLocaleString() +" PpS)";
+    document.getElementById("merchandiseDesc").innerHTML = "Sell Merchandise with Potato Branding. (" + merchandisePpSadd.toLocaleString() + " PpS)";
+    document.getElementById("PpSCount").innerHTML = "PpS: " + PpS.toLocaleString();
 
     if (potatoes >= spudSpitterCost) {
         document.getElementById("spudSpitter").style.backgroundColor = '#33cc33';
@@ -136,6 +142,12 @@ function checkUpgrades() {
         document.getElementById("potatoConvention").style.backgroundColor = '#33cc33';
     } else {
         document.getElementById("potatoConvention").style.backgroundColor = '#006600';
+    }
+
+    if (potatoes >= merchandiseCost) {
+        document.getElementById("potatoMerchandise").style.backgroundColor = '#33cc33';
+    } else {
+        document.getElementById("potatoMerchandise").style.backgroundColor = '#006600';
     }
 
 
@@ -190,9 +202,19 @@ function checkUpgrades() {
     } else {
         document.getElementById("fifthUpgrade").style.backgroundColor = 'grey';
     }
+
+    if (sleekerDesigns == 0) {
+        if (potatoes >= 1000000) {
+            document.getElementById("sixthUpgrade").style.backgroundColor = '#33cc33';
+        } else {
+            document.getElementById("sixthUpgrade").style.backgroundColor = '#006600';
+        }
+    } else {
+        document.getElementById("sixthUpgrade").style.backgroundColor = 'grey';
+    }
 }
 
-function upgrades(number) {
+function towers(number) {
     if (number == 1) {
         if (potatoes >= spudSpitterCost) {
             increaseSpudCount();
@@ -217,6 +239,10 @@ function upgrades(number) {
         if (potatoes >= conventionCost) {
             increaseConventionCount();
         }
+    } else if (number == 7) {
+        if (potatoes >= merchandiseCost) {
+            increaseMerchandiseCount();
+        }
     }
 }
 
@@ -233,9 +259,9 @@ function increaseSpudCount() {
         document.getElementById("spudSpitter").style.backgroundColor = '#006600';
     }
 
-    document.getElementById("varCount").innerHTML = "Potatoes: " + potatoes;
-    document.getElementById("spudCount").innerHTML = "Spud Spitter: " + spudSpitter;
-    document.getElementById("spudText").innerHTML = "Spud Spitter &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: " + spudSpitterCost;
+    document.getElementById("varCount").innerHTML = "Potatoes: " + potatoes.toLocaleString();
+    document.getElementById("spudCount").innerHTML = "Spud Spitter: " + spudSpitter.toLocaleString();
+    document.getElementById("spudText").innerHTML = "Spud Spitter &nbsp;&nbsp; || &nbsp;&nbsp;  Cost: " + spudSpitterCost.toLocaleString();
     console.log(spudSpitter);
 }
 
@@ -249,10 +275,10 @@ function increaseFarmerCount() {
         document.getElementById("potatoFarmer").style.backgroundColor = '#006600';
     }
 
-    document.getElementById("varCount").innerHTML = "Potatoes: " + potatoes;
-    document.getElementById("PpSCount").innerHTML = "PpS: " + PpS;
-    document.getElementById("farmerCount").innerHTML = "Potato Farmer: " + farmer;
-    document.getElementById("farmerText").innerHTML = "Cost: " + farmerCost;
+    document.getElementById("varCount").innerHTML = "Potatoes: " + potatoes.toLocaleString();
+    document.getElementById("PpSCount").innerHTML = "PpS: " + PpS.toLocaleString();
+    document.getElementById("farmerCount").innerHTML = "Potato Farmer: " + farmer.toLocaleString();
+    document.getElementById("farmerText").innerHTML = "Cost: " + farmerCost.toLocaleString();
     console.log(farmer);
 }
 
@@ -266,10 +292,10 @@ function increaseFarmCount() {
         document.getElementById("potatoFarm").style.backgroundColor = '#006600';
     }
 
-    document.getElementById("varCount").innerHTML = "Potatoes: " + potatoes;
-    document.getElementById("PpSCount").innerHTML = "PpS: " + PpS;
-    document.getElementById("farmCount").innerHTML = "Potato Farm: " + farm;
-    document.getElementById("farmText").innerHTML = "Cost: " + farmCost;
+    document.getElementById("varCount").innerHTML = "Potatoes: " + potatoes.toLocaleString();
+    document.getElementById("PpSCount").innerHTML = "PpS: " + PpS.toLocaleString();
+    document.getElementById("farmCount").innerHTML = "Potato Farm: " + farm.toLocaleString();
+    document.getElementById("farmText").innerHTML = "Cost: " + farmCost.toLocaleString();
     console.log(farm);
 }
 
@@ -283,10 +309,10 @@ function increaseFactoryCount() {
         document.getElementById("potatoFactory").style.backgroundColor = '#006600';
     }
 
-    document.getElementById("varCount").innerHTML = "Potatoes: " + potatoes;
-    document.getElementById("PpSCount").innerHTML = "PpS: " + PpS;
-    document.getElementById("factoryCount").innerHTML = "Potato Factory: " + factory;
-    document.getElementById("factoryText").innerHTML = "Cost: " + factoryCost;
+    document.getElementById("varCount").innerHTML = "Potatoes: " + potatoes.toLocaleString();
+    document.getElementById("PpSCount").innerHTML = "PpS: " + PpS.toLocaleString();
+    document.getElementById("factoryCount").innerHTML = "Potato Factory: " + factory.toLocaleString();
+    document.getElementById("factoryText").innerHTML = "Cost: " + factoryCost.toLocaleString();
     console.log(factory);
 }
 
@@ -300,10 +326,10 @@ function increaseDistrictCount() {
         document.getElementById("industrialDistrict").style.backgroundColor = '#006600';
     }
 
-    document.getElementById("varCount").innerHTML = "Potatoes: " + potatoes;
-    document.getElementById("PpSCount").innerHTML = "PpS: " + PpS;
-    document.getElementById("districtCount").innerHTML = "Industrial District: " + district;
-    document.getElementById("districtText").innerHTML = "Cost: " + districtCost;
+    document.getElementById("varCount").innerHTML = "Potatoes: " + potatoes.toLocaleString();
+    document.getElementById("PpSCount").innerHTML = "PpS: " + PpS.toLocaleString();
+    document.getElementById("districtCount").innerHTML = "Industrial District: " + district.toLocaleString();
+    document.getElementById("districtText").innerHTML = "Cost: " + districtCost.toLocaleString();
     console.log(district);
 }
 
@@ -317,73 +343,111 @@ function increaseConventionCount() {
         document.getElementById("potatoConvention").style.backgroundColor = '#006600';
     }
 
-    document.getElementById("varCount").innerHTML = "Potatoes: " + potatoes;
-    document.getElementById("PpSCount").innerHTML = "PpS: " + PpS;
-    document.getElementById("conventionCount").innerHTML = "Potato Convention: " + convention;
-    document.getElementById("conventionText").innerHTML = "Cost: " + conventionCost;
+    document.getElementById("varCount").innerHTML = "Potatoes: " + potatoes.toLocaleString();
+    document.getElementById("PpSCount").innerHTML = "PpS: " + PpS.toLocaleString();
+    document.getElementById("conventionCount").innerHTML = "Potato Convention: " + convention.toLocaleString();
+    document.getElementById("conventionText").innerHTML = "Cost: " + conventionCost.toLocaleString();
     console.log(convention);
 }
 
+function increaseMerchandiseCount() {
+    mechandise += 1;
+    potatoes -= merchandiseCost;
+    merchandiseCost = Math.floor(100000 * (1.15 ** merchandise));
+    PpS += merchandisePpSadd;
 
-// Upgrade Functions
+    if (potatoes < merchandiseCost) {
+        document.getElementById("potatoMerchandise").style.backgroundColor = '#006600';
+    }
+
+    document.getElementById("varCount").innerHTML = "Potatoes: " + potatoes.toLocaleString();
+    document.getElementById("PpSCount").innerHTML = "PpS: " + PpS.toLocaleString();
+    document.getElementById("merchaniseCount").innerHTML = "Potato Merchandise: " + merchandise.toLocaleString();
+    document.getElementById("merchandiseText").innerHTML = "Cost: " + merchandiseCost.toLocaleString();
+    console.log(merchandise);
+}
+
+
+// Upgrade Function
 //////////////////////////////////////////////
 
-function buyBiggerYields() {
-    if (biggerYields == 0) {
-        if (potatoes >= 500) {
-            PpS -= farmerPpSadd*farmer
-            PpS += (2*farmerPpSadd)*farmer
-            potatoes -= 500
-            farmerPpSadd *= 2;
-            biggerYields = 1;
-        }
-    }    
-}
-
-function buyMoreFields() {
-    if (moreFields == 0) {
-        if (potatoes >= 3000) {
-            PpS -= farmPpSadd*farm
-            PpS += (2*farmPpSadd)*farm
-            potatoes -= 3000;
-            farmPpSadd *= 2;
-            moreFields = 1;
+function upgrades(number) {
+    
+    // Buy More Yields
+    if (number == 1) {
+        if (biggerYields == 0) {
+            if (potatoes >= 500) {
+                PpS -= farmerPpSadd*farmer
+                PpS += (2*farmerPpSadd)*farmer
+                potatoes -= 500
+                farmerPpSadd *= 2;
+                biggerYields = 1;
+            }
         }
     }
-}
 
-function buyLooserLaws() {
-    if (looserLaws == 0) {
-        if (potatoes >= 10000) {
-            PpS -= factoryPpSadd*factory
-            PpS += (2*factoryPpSadd)*factory
-            potatoes -= 10000;
-            factoryPpSadd *= 2;
-            looserLaws = 1;
+    // Buy More Fields
+    if (number == 2) {
+        if (moreFields == 0) {
+            if (potatoes >= 3000) {
+                PpS -= farmPpSadd*farm
+                PpS += (2*farmPpSadd)*farm
+                potatoes -= 3000;
+                farmPpSadd *= 2;
+                moreFields = 1;
+            }
         }
     }
-}
 
-function buyDistrictExpansion() {
-    if (districtExpansion == 0) {
-        if (potatoes >= 50000) {
-            PpS -= districtPpSadd*district
-            PpS += (2*districtPpSadd)*district
-            potatoes -= 50000;
-            districtPpSadd *= 2;
-            districtExpansion = 1;
+    // Looser Laws
+    if (number == 3) {
+        if (looserLaws == 0) {
+            if (potatoes >= 10000) {
+                PpS -= factoryPpSadd*factory
+                PpS += (2*factoryPpSadd)*factory
+                potatoes -= 10000;
+                factoryPpSadd *= 2;
+                looserLaws = 1;
+            }
         }
     }
-}
 
-function buyMoreBooths() {
-    if (moreBooths == 0) {
-        if (potatoes >= 200000) {
-            PpS -= conventionPpSadd*convention
-            PpS += (2*conventionPpSadd)*convention
-            potatoes -= 200000;
-            conventionPpSadd *= 2;
-            moreBooths = 1;
+    // Buy District Expansion
+    if (number == 4) {
+        if (districtExpansion == 0) {
+            if (potatoes >= 50000) {
+                PpS -= districtPpSadd*district
+                PpS += (2*districtPpSadd)*district
+                potatoes -= 50000;
+                districtPpSadd *= 2;
+                districtExpansion = 1;
+            }
+        }
+    }
+
+    // Buy More Booths
+    if (number == 5) {
+        if (moreBooths == 0) {
+            if (potatoes >= 200000) {
+                PpS -= conventionPpSadd*convention
+                PpS += (2*conventionPpSadd)*convention
+                potatoes -= 200000;
+                conventionPpSadd *= 2;
+                moreBooths = 1;
+            }
+        }
+    }
+
+    // Buy Sleeker Designs
+    if (number == 6) {
+        if (sleekerDesigns == 0) {
+            if (potatoes >= 1000000) {
+                PpS -= merchandisePpSadd*merchandise
+                PpS += (2*merchandisePpSadd)*merchandise
+                potatoes -= 1000000;
+                merchandisePpSadd *= 2;
+                sleekerDesigns = 1;
+            }
         }
     }
 }
@@ -397,7 +461,7 @@ function increasePotatoes() {
 
 function activatePpS() {
     potatoes += PpS;
-    document.getElementById("varCount").innerHTML = "Potatoes: " + potatoes;
+    document.getElementById("varCount").innerHTML = "Potatoes: " + potatoes.toLocaleString();
     progressBar();
 }
 
@@ -431,12 +495,16 @@ function setSessionVariables(number) {
     localStorage.setItem("convention", convention);
     localStorage.setItem("conventionCost", conventionCost);
     localStorage.setItem("conventionPpSadd", conventionPpSadd);
+    localStorage.setItem("merchandise", merchandise);
+    localStorage.setItem("merchandiseCost", merchandiseCost);
+    localStorage.setItem("merchandisePpSadd", merchandisePpSadd);
     
     localStorage.setItem("biggerYields", biggerYields);
     localStorage.setItem("moreFields", moreFields);
     localStorage.setItem("looserLaws", looserLaws);
     localStorage.setItem("districtExpansion", districtExpansion);
     localStorage.setItem("moreBooths", moreBooths);
+    localStorage.setItem("sleekerDesigns", sleekerDesigns);
 
     
     // Only activates when Save button is pressed
@@ -478,39 +546,47 @@ function retrieveSessionVariables() {
         convention = Number(localStorage.getItem("convention"));
         conventionCost = Number(localStorage.getItem("conventionCost"));
         conventionPpSadd = Number(localStorage.getItem("conventionPpSadd"));
+        merchandise = Number(localStorage.getItem("merchandise"));
+        merchandiseCost = Number(localStorage.getItem("merchandiseCost"));
+        merchandisePpSadd = Number(localStorage.getItem("merchandisePpSadd"));
 
         biggerYields = Number(localStorage.getItem("biggerYields"));
         moreFields = Number(localStorage.getItem("moreFields"));
         looserLaws = Number(localStorage.getItem("looserLaws"));
         districtExpansion = Number(localStorage.getItem("districtExpansion"));
         moreBooths = Number(localStorage.getItem("moreBooths"));
+        sleekerDesigns = Number(localStorage.getItem("sleekerDesigns"));
 
     
-        document.getElementById("varCount").innerHTML = "Potatoes: " + potatoes;
-        document.getElementById("PpSCount").innerHTML = "PpS: " + PpS;
+        document.getElementById("varCount").innerHTML = "Potatoes: " + potatoes.toLocaleString();
+        document.getElementById("PpSCount").innerHTML = "PpS: " + PpS.toLocaleString();
 
-        document.getElementById("spudCount").innerHTML = "Spud Spitter: " + spudSpitter;
-        document.getElementById("spudText").innerHTML = "Cost: " + spudSpitterCost;
+        document.getElementById("spudCount").innerHTML = "Spud Spitter: " + spudSpitter.toLocaleString();
+        document.getElementById("spudText").innerHTML = "Cost: " + spudSpitterCost.toLocaleString();
 
-        document.getElementById("farmerCount").innerHTML = "Potato Farmer: " + farmer;
-        document.getElementById("farmerText").innerHTML = "Cost: " + farmerCost;
-        document.getElementById("farmerDesc").innerHTML = "This Honest Man gives you his potatoes (" + farmerPpSadd + " PpS)";
+        document.getElementById("farmerCount").innerHTML = "Potato Farmer: " + farmer.toLocaleString();
+        document.getElementById("farmerText").innerHTML = "Cost: " + farmerCost.toLocaleString();
+        document.getElementById("farmerDesc").innerHTML = "This Honest Man gives you his potatoes (" + farmerPpSadd.toLocaleString() + " PpS)";
 
-        document.getElementById("farmCount").innerHTML = "Potato Farm: " + farm;
-        document.getElementById("farmText").innerHTML = "Cost: " + farmCost;
-        document.getElementById("farmDesc").innerHTML = "A whole farm dedicated to your potatoes. (" + farmPpSadd +" PpS)";
+        document.getElementById("farmCount").innerHTML = "Potato Farm: " + farm.toLocaleString();
+        document.getElementById("farmText").innerHTML = "Cost: " + farmCost.toLocaleString();
+        document.getElementById("farmDesc").innerHTML = "A whole farm dedicated to your potatoes. (" + farmPpSadd.toLocaleString() +" PpS)";
 
-        document.getElementById("factoryCount").innerHTML = "Potato Factory: " + factory;
-        document.getElementById("factoryText").innerHTML = "Cost: " + factoryCost;
-        document.getElementById("factoryDesc").innerHTML = "Streamline Production in Potato Factories. (" + factoryPpSadd +" PpS)";
+        document.getElementById("factoryCount").innerHTML = "Potato Factory: " + factory.toLocaleString();
+        document.getElementById("factoryText").innerHTML = "Cost: " + factoryCost.toLocaleString();
+        document.getElementById("factoryDesc").innerHTML = "Streamline Production in Potato Factories. (" + factoryPpSadd.toLocaleString() +" PpS)";
 
-        document.getElementById("districtCount").innerHTML = "Industrial District: " + district;
-        document.getElementById("districtText").innerHTML = "Cost: " + districtCost;
-        document.getElementById("districtDesc").innerHTML = "An entire district of factories dedicated to Potatoes. (" + districtPpSadd +" PpS)";
+        document.getElementById("districtCount").innerHTML = "Industrial District: " + district.toLocaleString();
+        document.getElementById("districtText").innerHTML = "Cost: " + districtCost.toLocaleString();
+        document.getElementById("districtDesc").innerHTML = "An entire district of factories dedicated to Potatoes. (" + districtPpSadd.toLocaleString() +" PpS)";
 
-        document.getElementById("conventionCount").innerHTML = "Potato Convention: " + convention;
-        document.getElementById("conventionText").innerHTML = "Cost: " + conventionCost;
-        document.getElementById("conventionDesc").innerHTML = "Host a convention for potatoes - \"Potato-Con\"! (" + conventionPpSadd +" PpS)";
+        document.getElementById("conventionCount").innerHTML = "Potato Convention: " + convention.toLocaleString();
+        document.getElementById("conventionText").innerHTML = "Cost: " + conventionCost.toLocaleString();
+        document.getElementById("conventionDesc").innerHTML = "Host a convention for potatoes - \"Potato-Con\"! (" + conventionPpSadd.toLocaleString() +" PpS)";
+
+        document.getElementById("merchandiseCount").innerHTML = "Potato Merchandise: " + merchandise.toLocaleString();
+        document.getElementById("merchandiseText").innerHTML = "Cost: " + merchandiseCost.toLocaleString();
+        document.getElementById("merchandiseDesc").innerHTML = "Sell Merchandise with Potato Branding. (" + merchandisePpSadd.toLocaleString() + " PpS)";
     
         if (biggerYields == 1) {
             document.getElementById("firstUpgrade").style.backgroundColor = 'grey';
@@ -530,6 +606,10 @@ function retrieveSessionVariables() {
 
         if (moreBooths == 1) {
             document.getElementById("fifthUpgrade").style.backgroundColor = 'grey';
+        }
+
+        if (sleekerDesigns == 1) {
+            document.getElementById("sixthUpgrade").style.backgroundColor = 'grey';
         }
     }
     
