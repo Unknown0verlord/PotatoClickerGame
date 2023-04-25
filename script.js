@@ -36,7 +36,7 @@ let districtExpansion = 0;
 let moreBooths = 0;
 let sleekerDesigns = 0;
 
-let patch = "v1.1.0";
+let patch = "v1.1.1";
 
 
 
@@ -351,7 +351,7 @@ function increaseConventionCount() {
 }
 
 function increaseMerchandiseCount() {
-    mechandise += 1;
+    merchandise += 1;
     potatoes -= merchandiseCost;
     merchandiseCost = Math.floor(100000 * (1.15 ** merchandise));
     PpS += merchandisePpSadd;
@@ -362,7 +362,7 @@ function increaseMerchandiseCount() {
 
     document.getElementById("varCount").innerHTML = "Potatoes: " + potatoes.toLocaleString();
     document.getElementById("PpSCount").innerHTML = "PpS: " + PpS.toLocaleString();
-    document.getElementById("merchaniseCount").innerHTML = "Potato Merchandise: " + merchandise.toLocaleString();
+    document.getElementById("merchandiseCount").innerHTML = "Potato Merchandise: " + merchandise.toLocaleString();
     document.getElementById("merchandiseText").innerHTML = "Cost: " + merchandiseCost.toLocaleString();
     console.log(merchandise);
 }
