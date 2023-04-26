@@ -61,6 +61,18 @@
                     <p>Cost: 1,000,000 Potatoes</p>
                     <p>Doubles the PpS of your Potato Merchandise</p>
                 </button>
+
+                <button type="button" class="upgradeBlocks" id="seventhUpgrade" onclick="upgrades(7)">
+                    <h3>Potato Skin Sacrifice</h3>
+                    <p>Cost: 6,666,666 Potatoes</p>
+                    <p>Doubles the PpS of your Potato Cults</p>
+                </button>
+
+                <button type="button" class="upgradeBlocks" id="eighthUpgrade" onclick="upgrades(8)">
+                    <h3>More Brands</h3>
+                    <p>Cost: 10,000,000 Potatoes</p>
+                    <p>Doubles the PpS of your Potato Sponsorships</p>
+                </button>
             
                 <br />
                 <br />
@@ -79,13 +91,15 @@
             <button type="button" class="saveData" onclick="setSessionVariables(1)">Save</button>
             <button type="button" id="removeData" onclick="deleteData()">Clear Data</button>
             <p>Amounts <br />---------------</p>
-            <p id="spudCount">Spud Spitter: 0</p>
-            <p id="farmerCount">Potato Farmer: 0</p>
-            <p id="farmCount">Potato Farm: 0</p>
-            <p id="factoryCount">Potato Factory: 0</p>
-            <p id="districtCount">Industrial District: 0</p>
-            <p id="conventionCount">Potato Convention: 0</p>
+            <p id="spudCount">Spud Spitters: 0</p>
+            <p id="farmerCount">Potato Farmers: 0</p>
+            <p id="farmCount">Potato Farms: 0</p>
+            <p id="factoryCount">Potato Factories: 0</p>
+            <p id="districtCount">Industrial Districts: 0</p>
+            <p id="conventionCount">Potato Conventions: 0</p>
             <p id="merchandiseCount">Potato Merchandise: 0</p>
+            <p id="cultCount">Potato Cults: 0</p>
+            <p id="sponsorshipsCount">Potato Sponsorships: 0</p>
         </div>
 
 
@@ -94,7 +108,7 @@
             <p id="varCount">Potatoes: 0</p>
             <p id="PpSCount">PpS: 0</p>
             
-            
+            <!-- Progress Bar -->
             <div class="progress-grey">
                 <div class="progress-green" id="progressBar" style="height:24px;width:0"></div>
             </div>
@@ -109,59 +123,75 @@
         <br />
         <br />
 
-        <!-- Spud Spitter Upgrade Button -->
-        <button class="upgrades" id="spudSpitter" type="button" onclick="towers(1)">
+        <!-- Spud Spitter Tower Button -->
+        <button class="towers" id="spudSpitter" type="button" onclick="towers(1)">
             <p>Spud Spitter</p>
-            <p class="upgradeText" id="spudText">Cost: 10</p>
-            <p class="upgradeDesc">Makes more potatoes per click.</p>
+            <p class="towerText" id="spudText">Cost: 10</p>
+            <p class="towerDesc">Makes more potatoes per click.</p>
         </button>
 
         <br />
 
-        <!-- Potato Farmer Upgrade Button -->
-        <button class="upgrades" id="potatoFarmer" type="Button" onclick="towers(2)">
+        <!-- Potato Farmer Tower Button -->
+        <button class="towers" id="potatoFarmer" type="Button" onclick="towers(2)">
             <p>Potato Farmer</p>
-            <p class="upgradeText" id="farmerText">Cost: 50</p>
-            <p class="upgradeDesc" id="farmerDesc"></p>
+            <p class="towerText" id="farmerText">Cost: 50</p>
+            <p class="towerDesc" id="farmerDesc"></p>
         </button>
 
-        <!-- Potato Farm Upgrade Button -->
-        <button class="upgrades" id="potatoFarm" type="Button" onclick="towers(3)">
+        <!-- Potato Farm Tower Button -->
+        <button class="towers" id="potatoFarm" type="Button" onclick="towers(3)">
             <p>Potato Farm</p>
-            <p class="upgradeText" id="farmText">Cost: 300</p>
-            <p class="upgradeDesc" id="farmDesc"></p>
+            <p class="towerText" id="farmText">Cost: 300</p>
+            <p class="towerDesc" id="farmDesc"></p>
         </button>
 
         <br />
 
-        <!-- Potato Factory Upgrade Button -->
-        <button class="upgrades" id="potatoFactory" type="Button" onclick="towers(4)">
+        <!-- Potato Factory Tower Button -->
+        <button class="towers" id="potatoFactory" type="Button" onclick="towers(4)">
             <p>Potato Factory</p>
-            <p class="upgradeText" id="factoryText">Cost: 1,000</p>
-            <p class="upgradeDesc" id="factoryDesc"></p>
+            <p class="towerText" id="factoryText">Cost: 1,000</p>
+            <p class="towerDesc" id="factoryDesc"></p>
         </button>
 
-        <!-- Industrial District Upgrade Button -->
-        <button class="upgrades" id="industrialDistrict" type="Button" onclick="towers(5)">
+        <!-- Industrial District Tower Button -->
+        <button class="towers" id="industrialDistrict" type="Button" onclick="towers(5)">
             <p>Industrial Disrict</p>
-            <p class="upgradeText" id="districtText">Cost: 5,000</p>
-            <p class="upgradeDesc" id="districtDesc"></p>
+            <p class="towerText" id="districtText">Cost: 5,000</p>
+            <p class="towerDesc" id="districtDesc"></p>
         </button>
 
         <br />
 
-        <!-- Potato Convention Upgrade Button -->
-        <button class="upgrades" id="potatoConvention" type="Button" onclick="towers(6)">
+        <!-- Potato Convention Tower Button -->
+        <button class="towers" id="potatoConvention" type="Button" onclick="towers(6)">
             <p>Potato Convention</p>
-            <p class="upgradeText" id="conventionText">Cost: 20,000</p>
-            <p class="upgradeDesc" id="conventionDesc"></p>
+            <p class="towerText" id="conventionText">Cost: 20,000</p>
+            <p class="towerDesc" id="conventionDesc"></p>
         </button>
 
-        <!-- Potato Merchandise Upgrade Button -->
-        <button class="upgrades" id="potatoMerchandise" type="Button" onclick="towers(7)">
+        <!-- Potato Merchandise Tower Button -->
+        <button class="towers" id="potatoMerchandise" type="Button" onclick="towers(7)">
             <p>Potato Merchandise</p>
-            <p class="upgradeText" id="merchandiseText">Cost: 100,000</p>
-            <p class="upgradeDesc" id="merchandiseDesc"></p>
+            <p class="towerText" id="merchandiseText">Cost: 100,000</p>
+            <p class="towerDesc" id="merchandiseDesc"></p>
+        </button>
+
+        <br />
+
+        <!-- Potato Cult Tower Button -->
+        <button class="towers" id="potatoCult" type="Button" onclick="towers(8)">
+            <p>Potato Cult</p>
+            <p class="towerText" id="cultText">Cost: 666,666</p>
+            <p class="towerDesc" id="cultDesc"></p>
+        </button>
+        
+        <!-- Potato Sponsorships Tower Button -->
+        <button class="towers" id="potatoSponsorships" type="Button" onclick="towers(9)">
+            <p>Potato Sponsorships</p>
+            <p class="towerText" id="sponsorshipsText">Cost: 1,234,567</p>
+            <p class="towerDesc" id="sponsorshipsDesc"></p>
         </button>
         
 

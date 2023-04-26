@@ -1,8 +1,22 @@
+## **v1.2.0** - *Major*
+#### Content
+- Added Sponsorships Tower and More Brands upgrade
+- Added Potato Cult Tower and Potato Skin Sacrifice upgrade
+
+#### Formatting
+- Fixed Spud Spitter cost text when upgrading
+- Made Save Block slightly taller
+- Made "Game Saved" text slightly smaller
+- Changed Right Side Counts to have plurals
+
+#### Functionality
+- Fixed Previous Save Data colliding with new towers on release
+
 ### **v1.1.1** - *Minor* 
 - Fixed Merchandise Tower not being able to be bought.
 - Added Patch Notes
 
-# **v1.1.0** - *Major* 
+## **v1.1.0** - *Major* 
 #### Content
 - Added Merchandise Tower + Sleeker Designs
 
@@ -31,7 +45,7 @@
 - Fixed retrieveSessionVariables() not updating counter for some towers
 - Fixed retrieveSessionVariables() not updating Convention Cost
 
-# **v1.0.0** - *Major*
+## **v1.0.0** - *Major*
 #### Content
 *nothing to see here...*
 

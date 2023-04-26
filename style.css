@@ -70,7 +70,7 @@ p {
     color: white;
 }
 
-.upgrades {
+.towers {
     background-color: #006600;
     width: 20%;
     line-height: 3px;
@@ -98,11 +98,11 @@ p {
     position: fixed;
 }
 
-.upgradeDesc {
+.towerDesc {
     font-size: 12px;
 }
 
-.upgradeText {
+.towerText {
     font-size: 14.5px;
 }
 
@@ -197,7 +197,7 @@ p {
 #saveBlock {
     background-color: black;
     color:white;
-    font-size: 30px;
+    font-size: 25px;
     width: 99%;
     height: 99%;
 }
@@ -219,7 +219,7 @@ p {
 #surroundSave {
     background-color: darkorchid;
     width: 11%;
-    height: 11%;
+    height: 13%;
     margin-left: 89%;
     bottom:10px;
     right: 10px;
